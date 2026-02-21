@@ -127,7 +127,7 @@ export function EnquiryModal({ open, onClose }: EnquiryModalProps) {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.3 }}
-          className="fixed inset-0 z-[100] flex items-center justify-center p-4"
+          className="fixed inset-0 z-[200] flex items-center justify-center p-4"
           onClick={(e) => {
             if (e.target === e.currentTarget) onClose();
           }}
@@ -312,8 +312,8 @@ export function EnquiryModal({ open, onClose }: EnquiryModalProps) {
                                       setBudgetDropdownOpen(false);
                                     }}
                                     className={`w-full text-left px-4 py-3 font-['Inter'] transition-all duration-200 cursor-pointer ${budget === option
-                                        ? "bg-[#9B59B6]/20 text-[#F1C40F]"
-                                        : "text-white/60 hover:bg-white/5 hover:text-white"
+                                      ? "bg-[#9B59B6]/20 text-[#F1C40F]"
+                                      : "text-white/60 hover:bg-white/5 hover:text-white"
                                       }`}
                                     style={{
                                       fontSize: "0.85rem",
@@ -381,8 +381,8 @@ export function EnquiryModal({ open, onClose }: EnquiryModalProps) {
                                       setDropdownOpen(false);
                                     }}
                                     className={`w-full text-left px-4 py-3 font-['Inter'] transition-all duration-200 cursor-pointer ${helpType === option
-                                        ? "bg-[#9B59B6]/20 text-[#F1C40F]"
-                                        : "text-white/60 hover:bg-white/5 hover:text-white"
+                                      ? "bg-[#9B59B6]/20 text-[#F1C40F]"
+                                      : "text-white/60 hover:bg-white/5 hover:text-white"
                                       }`}
                                     style={{
                                       fontSize: "0.85rem",
