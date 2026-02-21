@@ -33,7 +33,7 @@ const services = [
     title: "Strategic Marketing & PR",
     subtitle: "Precision-engineered growth to put your brand center stage.",
     image:
-      "https://images.unsplash.com/photo-1761052676626-a3e49f178804?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxsdXh1cnklMjBicmFuZCUyMG1hcmtldGluZyUyMGNhbXBhaWduJTIwcGhvdG9zaG9vdHxlbnwxfHx8fDE3NzE2Nzg4OTJ8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+      "https://images.unsplash.com/photo-1552664730-d307ca884978?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
     items: [
       { icon: BarChart3, label: "Full-Scale Ad Campaigns", desc: "Concept-to-consumer strategy across all channels." },
       { icon: Mail, label: "Digital & Direct Marketing", desc: "High-conversion tactics to reach your specific audience." },
