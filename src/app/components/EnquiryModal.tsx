@@ -117,7 +117,7 @@ export function EnquiryModal({ open, onClose }: EnquiryModalProps) {
   };
 
   const inputBase =
-    "w-full bg-[#150A1E]/60 border border-white/10 rounded-xl px-4 py-3.5 font-['Inter'] text-white placeholder-white/25 outline-none transition-all duration-300 focus:border-[#9B59B6]/60 focus:ring-1 focus:ring-[#9B59B6]/30 hover:border-white/20";
+    "w-full bg-[#150A1E]/60 border border-white/10 rounded-xl px-4 py-2.5 sm:py-3.5 font-['Inter'] text-white placeholder-white/25 outline-none transition-all duration-300 focus:border-[#9B59B6]/60 focus:ring-1 focus:ring-[#9B59B6]/30 hover:border-white/20";
 
   return (
     <AnimatePresence>
@@ -146,7 +146,7 @@ export function EnquiryModal({ open, onClose }: EnquiryModalProps) {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.92, y: 30 }}
             transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-            className="relative w-full max-w-lg max-h-[90vh] overflow-y-auto rounded-3xl border border-white/10"
+            className="relative w-full max-w-lg max-h-[85vh] sm:max-h-[90vh] overflow-y-auto rounded-2xl sm:rounded-3xl border border-white/10"
             style={{
               background:
                 "linear-gradient(160deg, #1a0e28 0%, #0f0817 40%, #0A0A0A 100%)",
@@ -159,12 +159,12 @@ export function EnquiryModal({ open, onClose }: EnquiryModalProps) {
             {/* Close Button */}
             <button
               onClick={onClose}
-              className="absolute top-5 right-5 z-10 w-9 h-9 rounded-full border border-white/10 flex items-center justify-center hover:border-[#9B59B6]/50 hover:bg-[#9B59B6]/10 transition-all duration-300 cursor-pointer"
+              className="sticky top-3 sm:top-5 float-right mr-3 sm:mr-5 mt-3 sm:mt-0 z-10 w-9 h-9 rounded-full border border-white/10 bg-[#0A0A0A]/80 backdrop-blur-sm flex items-center justify-center hover:border-[#9B59B6]/50 hover:bg-[#9B59B6]/10 transition-all duration-300 cursor-pointer"
             >
               <X size={16} className="text-white/50" />
             </button>
 
-            <div className="relative p-8 sm:p-10">
+            <div className="relative p-5 sm:p-10">
               <AnimatePresence mode="wait">
                 {!submitted ? (
                   <motion.div
@@ -175,7 +175,7 @@ export function EnquiryModal({ open, onClose }: EnquiryModalProps) {
                     transition={{ duration: 0.3 }}
                   >
                     {/* Header */}
-                    <div className="mb-8">
+                    <div className="mb-5 sm:mb-8">
                       <div className="flex items-center gap-3 mb-3">
                         <div className="w-6 h-[1px] bg-[#9B59B6]/50" />
                         <span
@@ -209,7 +209,7 @@ export function EnquiryModal({ open, onClose }: EnquiryModalProps) {
                     </div>
 
                     {/* Form */}
-                    <form onSubmit={handleSubmit} className="space-y-4">
+                    <form onSubmit={handleSubmit} className="space-y-3 sm:space-y-4">
                       {/* Name */}
                       <motion.div
                         initial={{ opacity: 0, x: -10 }}
@@ -285,9 +285,8 @@ export function EnquiryModal({ open, onClose }: EnquiryModalProps) {
                           </span>
                           <ChevronDown
                             size={16}
-                            className={`text-white/30 transition-transform duration-300 ${
-                              budgetDropdownOpen ? "rotate-180" : ""
-                            }`}
+                            className={`text-white/30 transition-transform duration-300 ${budgetDropdownOpen ? "rotate-180" : ""
+                              }`}
                           />
                         </button>
 
@@ -312,11 +311,10 @@ export function EnquiryModal({ open, onClose }: EnquiryModalProps) {
                                       setBudget(option);
                                       setBudgetDropdownOpen(false);
                                     }}
-                                    className={`w-full text-left px-4 py-3 font-['Inter'] transition-all duration-200 cursor-pointer ${
-                                      budget === option
+                                    className={`w-full text-left px-4 py-3 font-['Inter'] transition-all duration-200 cursor-pointer ${budget === option
                                         ? "bg-[#9B59B6]/20 text-[#F1C40F]"
                                         : "text-white/60 hover:bg-white/5 hover:text-white"
-                                    }`}
+                                      }`}
                                     style={{
                                       fontSize: "0.85rem",
                                       fontWeight: 300,
@@ -356,9 +354,8 @@ export function EnquiryModal({ open, onClose }: EnquiryModalProps) {
                           </span>
                           <ChevronDown
                             size={16}
-                            className={`text-white/30 transition-transform duration-300 ${
-                              dropdownOpen ? "rotate-180" : ""
-                            }`}
+                            className={`text-white/30 transition-transform duration-300 ${dropdownOpen ? "rotate-180" : ""
+                              }`}
                           />
                         </button>
 
@@ -383,11 +380,10 @@ export function EnquiryModal({ open, onClose }: EnquiryModalProps) {
                                       setHelpType(option);
                                       setDropdownOpen(false);
                                     }}
-                                    className={`w-full text-left px-4 py-3 font-['Inter'] transition-all duration-200 cursor-pointer ${
-                                      helpType === option
+                                    className={`w-full text-left px-4 py-3 font-['Inter'] transition-all duration-200 cursor-pointer ${helpType === option
                                         ? "bg-[#9B59B6]/20 text-[#F1C40F]"
                                         : "text-white/60 hover:bg-white/5 hover:text-white"
-                                    }`}
+                                      }`}
                                     style={{
                                       fontSize: "0.85rem",
                                       fontWeight: 300,
