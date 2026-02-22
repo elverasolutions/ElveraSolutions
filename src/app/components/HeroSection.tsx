@@ -295,26 +295,6 @@ export function HeroSection() {
         className="relative z-10 max-w-6xl mx-auto px-6 lg:px-8 text-center"
         style={lite ? undefined : { y: contentY, opacity: contentOpacity }}
       >
-        {/* Tagline */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: lite ? 0.4 : 1, delay: d(0.2) }}
-          className="mb-8"
-        >
-          <span
-            className="inline-flex items-center gap-2 font-['Inter'] text-[#C39BD3] border border-[#9B59B6]/20 px-5 py-2 rounded-full bg-[#9B59B6]/5"
-            style={{
-              fontSize: "0.7rem",
-              fontWeight: 500,
-              letterSpacing: "0.2em",
-            }}
-          >
-            <span className="w-1.5 h-1.5 bg-[#F1C40F] rounded-full animate-pulse" />
-            CREATIVE ENGINE FOR MODERN BRANDS
-          </span>
-        </motion.div>
-
         {/* Animated Headline */}
         <AnimatedHeadline lite={lite} />
 
