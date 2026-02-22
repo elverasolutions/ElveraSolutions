@@ -93,8 +93,8 @@ const showcaseImages = [
     caption: "Media Production",
   },
   {
-    src: "https://images.unsplash.com/photo-1591303927954-2b12006ca0c7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxsdXh1cnklMjBicmFuZCUyMGlkZW50aXR5JTIwZGVzaWduJTIwdHlwb2dyYXBoeXxlbnwxfHx8fDE3NzE3MDA1Nzd8MA&ixlib=rb-4.1.0&q=100&w=2400&utm_source=figma&utm_medium=referral",
-    alt: "Modern branding workspace",
+    src: "https://images.unsplash.com/photo-1558655146-9f40138edfeb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=2400",
+    alt: "Creative design workspace with color palettes",
     caption: "Brand Identity",
   },
   {
@@ -163,11 +163,10 @@ function ShowcaseCarousel({ inView, lite }: { inView: boolean; lite: boolean }) 
           <button
             key={i}
             onClick={() => setActive(i)}
-            className={`h-1 rounded-full transition-all duration-500 cursor-pointer ${
-              active === i
+            className={`h-1 rounded-full transition-all duration-500 cursor-pointer ${active === i
                 ? "w-8 bg-[#F1C40F]"
                 : "w-2 bg-white/15 hover:bg-white/30"
-            }`}
+              }`}
           />
         ))}
       </div>
