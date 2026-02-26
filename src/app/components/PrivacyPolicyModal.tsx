@@ -3,7 +3,7 @@ import { createPortal } from "react-dom";
 import { motion, AnimatePresence } from "motion/react";
 import { X } from "lucide-react";
 
-interface TermsAndConditionsModalProps {
+interface PrivacyPolicyModalProps {
     open: boolean;
     onClose: () => void;
 }
@@ -21,7 +21,7 @@ function FadeBlock({ children }: { children: ReactNode }) {
     );
 }
 
-export function TermsAndConditionsModal({ open, onClose }: TermsAndConditionsModalProps) {
+export function PrivacyPolicyModal({ open, onClose }: PrivacyPolicyModalProps) {
     const [mounted, setMounted] = useState(false);
 
     useEffect(() => {
@@ -277,7 +277,7 @@ export function TermsAndConditionsModal({ open, onClose }: TermsAndConditionsMod
                                 <FadeBlock>
                                     <h3>13. Amendments</h3>
                                     <p>
-                                        Elvera Solutions reserves the right to amend these Terms and Conditions at
+                                        Elvera Solutions reserves the right to amend this Privacy Policy at
                                         any time. Amendments become effective upon publication on the website
                                         and apply prospectively.
                                     </p>
@@ -286,7 +286,7 @@ export function TermsAndConditionsModal({ open, onClose }: TermsAndConditionsMod
                                 <FadeBlock>
                                     <h3>14. Contact</h3>
                                     <p>
-                                        For any questions relating to these Terms and Conditions or personal data
+                                        For any questions relating to this Privacy Policy or personal data
                                         processing:<br />
                                         📧 <a href="mailto:contact@elverasolutions.com" className="transition-colors">contact@elverasolutions.com</a><br />
                                         Elvera Solutions LLC<br />

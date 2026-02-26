@@ -11,7 +11,7 @@ import {
 } from "lucide-react";
 import { useLiteAnimations } from "./useMediaQuery";
 import { EnquiryModal } from "./EnquiryModal";
-import { TermsAndConditionsModal } from "./TermsAndConditionsModal";
+import { PrivacyPolicyModal } from "./PrivacyPolicyModal";
 
 export function Footer() {
   const lite = useLiteAnimations();
@@ -20,7 +20,7 @@ export function Footer() {
   const footerRef = useRef(null);
   const footerInView = useInView(footerRef, { once: true, margin: "-30px" });
   const [modalOpen, setModalOpen] = useState(false);
-  const [termsOpen, setTermsOpen] = useState(false);
+  const [privacyOpen, setPrivacyOpen] = useState(false);
 
   const scrollTo = (href: string) => {
     const el = document.querySelector(href);
@@ -357,15 +357,15 @@ export function Footer() {
                   "Data Protection",
                 ].map((item) => (
                   <li key={item}>
-                    {item === "Terms and Conditions" ? (
+                    {item === "Privacy Policy" ? (
                       <button
-                        onClick={() => setTermsOpen(true)}
+                        onClick={() => setPrivacyOpen(true)}
                         className="font-['Inter'] text-white/40 hover:text-[#F1C40F] transition-colors duration-300 text-left bg-transparent border-none cursor-pointer p-0"
                         style={{ fontSize: "0.85rem", fontWeight: 300 }}
                       >
                         {item}
                       </button>
-                    ) : item === "Privacy Policy" || item === "Data Protection" ? (
+                    ) : item === "Terms and Conditions" || item === "Data Protection" ? (
                       <span
                         className="font-['Inter'] text-white/25 cursor-default"
                         style={{ fontSize: "0.85rem", fontWeight: 300 }}
@@ -476,19 +476,19 @@ export function Footer() {
               All rights reserved.
             </p>
             <div className="flex items-center gap-6">
+              <button
+                onClick={() => setPrivacyOpen(true)}
+                className="font-['Inter'] text-white/25 hover:text-[#F1C40F] transition-colors duration-300 bg-transparent border-none cursor-pointer p-0"
+                style={{ fontSize: "0.75rem", fontWeight: 300 }}
+              >
+                Privacy Policy
+              </button>
               <span
                 className="font-['Inter'] text-white/25 cursor-default"
                 style={{ fontSize: "0.75rem", fontWeight: 300 }}
               >
-                Privacy Policy
-              </span>
-              <button
-                onClick={() => setTermsOpen(true)}
-                className="font-['Inter'] text-white/25 hover:text-[#F1C40F] transition-colors duration-300 bg-transparent border-none cursor-pointer p-0"
-                style={{ fontSize: "0.75rem", fontWeight: 300 }}
-              >
                 Terms of Service
-              </button>
+              </span>
             </div>
           </motion.div>
         </div>
@@ -497,8 +497,8 @@ export function Footer() {
       {/* Enquiry Modal */}
       <EnquiryModal open={modalOpen} onClose={() => setModalOpen(false)} />
 
-      {/* Terms and Conditions Modal */}
-      <TermsAndConditionsModal open={termsOpen} onClose={() => setTermsOpen(false)} />
+      {/* Privacy Policy Modal */}
+      <PrivacyPolicyModal open={privacyOpen} onClose={() => setPrivacyOpen(false)} />
     </>
   );
 }
