@@ -1,4 +1,5 @@
-import { useState, useEffect } from "react";
+import { useState, FormEvent, useEffect } from "react";
+import { createPortal } from "react-dom";
 import { motion, AnimatePresence } from "motion/react";
 import { X, Send, ChevronDown, CheckCircle, AlertCircle, Loader2, CalendarDays } from "lucide-react";
 
@@ -49,6 +50,12 @@ export function EnquiryModal({ open, onClose }: EnquiryModalProps) {
   const [submitted, setSubmitted] = useState(false);
   const [sending, setSending] = useState(false);
   const [error, setError] = useState("");
+
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   // Lock body scroll when modal is open
   useEffect(() => {
@@ -119,7 +126,9 @@ export function EnquiryModal({ open, onClose }: EnquiryModalProps) {
   const inputBase =
     "w-full bg-[#150A1E]/60 border border-white/10 rounded-xl px-4 py-2.5 sm:py-3.5 font-['Inter'] text-white placeholder-white/25 outline-none transition-all duration-300 focus:border-[#9B59B6]/60 focus:ring-1 focus:ring-[#9B59B6]/30 hover:border-white/20";
 
-  return (
+  if (!mounted) return null;
+
+  return createPortal(
     <AnimatePresence>
       {open && (
         <motion.div
@@ -564,6 +573,7 @@ export function EnquiryModal({ open, onClose }: EnquiryModalProps) {
           </motion.div>
         </motion.div>
       )}
-    </AnimatePresence>
+    </AnimatePresence>,
+    document.body
   );
 }
