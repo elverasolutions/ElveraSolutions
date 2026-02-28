@@ -301,7 +301,6 @@ export function Footer() {
                   { label: "Home", href: "/" },
                   { label: "About Us", href: "/about" },
                   { label: "Services", href: "/services" },
-                  { label: "Portfolio", href: "/portfolio" },
                   { label: "Industries", href: "/industries" },
                   { label: "Contact Us", href: "/contact" },
                 ].map((link) => (
@@ -338,7 +337,6 @@ export function Footer() {
                   "Social Media Management",
                   "Web Design & Development",
                   "Photography & Videography",
-                  "Cyber Security",
                 ].map((item) => (
                   <li key={item}>
                     <Link
