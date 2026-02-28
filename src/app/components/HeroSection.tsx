@@ -1,4 +1,5 @@
 import { useRef, useState, useEffect } from "react";
+import { Link } from "react-router";
 import { motion, useScroll, useTransform, AnimatePresence } from "motion/react";
 import { ArrowRight, Play } from "lucide-react";
 import { useLiteAnimations } from "./useMediaQuery";
@@ -10,7 +11,7 @@ function AnimatedGradientButton({
   variant = "primary",
 }: {
   children: React.ReactNode;
-  onClick: () => void;
+  onClick?: () => void;
   variant?: "primary" | "outline";
 }) {
   if (variant === "outline") {
@@ -59,37 +60,15 @@ function AnimatedGradientButton({
 /* ------------------------------------------------------------------ */
 /*  Headline                                                          */
 /* ------------------------------------------------------------------ */
-const rotatingWords = ["Velocity", "Impact", "Elegance", "Legacy"];
 
 function AnimatedHeadline({ lite }: { lite: boolean }) {
-  const line1Words = ["Where", "Vision"];
-  const line2Words = ["Meets"];
-
-  const [wordIndex, setWordIndex] = useState(0);
-  const [initialDone, setInitialDone] = useState(false);
+  const line1Words = ["Elevating", "Brands"];
+  const line2Words = ["in", "the", "Digital"];
+  const accentWord = "Era";
 
   const baseDuration = lite ? 0.5 : 1;
   const baseDelay = lite ? 0 : 0.6;
   const stagger = lite ? 0.05 : 0.12;
-
-  // Start cycling after initial entrance animation completes
-  const entranceEnd =
-    baseDelay + (line1Words.length + line2Words.length + 1) * stagger + baseDuration;
-
-  useEffect(() => {
-    const startTimer = setTimeout(() => {
-      setInitialDone(true);
-    }, entranceEnd * 1000 + 1500); // extra 1.5s pause after entrance
-    return () => clearTimeout(startTimer);
-  }, [entranceEnd]);
-
-  useEffect(() => {
-    if (!initialDone) return;
-    const interval = setInterval(() => {
-      setWordIndex((prev) => (prev + 1) % rotatingWords.length);
-    }, 2800);
-    return () => clearInterval(interval);
-  }, [initialDone]);
 
   return (
     <div
@@ -104,7 +83,7 @@ function AnimatedHeadline({ lite }: { lite: boolean }) {
         <div className="flex items-center justify-center gap-[0.3em] flex-wrap">
           {line1Words.map((word, i) => (
             <motion.span
-              key={word}
+              key={word + i}
               initial={{ y: "110%", opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{
@@ -120,10 +99,10 @@ function AnimatedHeadline({ lite }: { lite: boolean }) {
         </div>
       </div>
       <div>
-        <div className="flex items-center justify-center gap-[0.3em] flex-wrap">
+        <div className="flex items-center justify-center gap-[0.3em] flex-wrap mt-2">
           {line2Words.map((word, i) => (
             <motion.span
-              key={word}
+              key={word + i}
               initial={{ y: "110%", opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{
@@ -137,41 +116,19 @@ function AnimatedHeadline({ lite }: { lite: boolean }) {
             </motion.span>
           ))}
 
-          {/* Rotating accent word - fixed-width grid prevents layout shift */}
-          <span className="inline-grid align-bottom overflow-hidden">
-            {/* Invisible sizers: all words in same cell → container = widest word */}
-            {rotatingWords.map((w) => (
-              <span
-                key={w}
-                aria-hidden
-                className="col-start-1 row-start-1 italic invisible select-none"
-              >
-                {w}
-              </span>
-            ))}
-            {/* Visible animated word - counter slide transition */}
-            <span className="col-start-1 row-start-1">
-              <AnimatePresence mode="wait">
-                <motion.span
-                  key={rotatingWords[wordIndex]}
-                  initial={{ y: "100%", opacity: 0 }}
-                  animate={{ y: 0, opacity: 1 }}
-                  exit={{ y: "-100%", opacity: 0 }}
-                  transition={{
-                    duration: initialDone ? 0.45 : baseDuration,
-                    delay:
-                      initialDone
-                        ? 0
-                        : baseDelay + (line1Words.length + line2Words.length) * stagger,
-                    ease: [0.22, 1, 0.36, 1],
-                  }}
-                  className="block italic text-[#F1C40F]"
-                >
-                  {rotatingWords[wordIndex]}
-                </motion.span>
-              </AnimatePresence>
-            </span>
-          </span>
+          {/* Static accent word */}
+          <motion.span
+            initial={{ y: "110%", opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{
+              duration: baseDuration,
+              delay: baseDelay + (line1Words.length + line2Words.length) * stagger,
+              ease: [0.22, 1, 0.36, 1],
+            }}
+            className="inline-block italic text-[#F1C40F]"
+          >
+            {accentWord}
+          </motion.span>
         </div>
       </div>
     </div>
@@ -198,11 +155,6 @@ export function HeroSection() {
     [0, 0.4],
     [1, lite ? 1 : 0]
   );
-
-  const scrollTo = (href: string) => {
-    const el = document.querySelector(href);
-    el?.scrollIntoView({ behavior: "smooth" });
-  };
 
   const d = (desktop: number) => (lite ? Math.min(desktop * 0.15, 0.2) : desktop);
 
@@ -268,8 +220,8 @@ export function HeroSection() {
               className="absolute w-1 h-1 bg-[#F1C40F]/40 rounded-full hidden lg:block"
               style={{
                 top: p.top,
-                left: (p as Record<string, string>).left,
-                right: (p as Record<string, string>).right,
+                left: (p as any).left,
+                right: (p as any).right,
                 animation: `twinkle ${p.dur} ${p.animDelay} ease-in-out infinite`,
               }}
             />
@@ -310,7 +262,7 @@ export function HeroSection() {
             lineHeight: 1.8,
           }}
         >
-          Elevate Your Brand in this Era. AI-enabled strategies and content.
+          We build, grow, and transform businesses through powerful technology, creative marketing, and bold digital strategies - from the UAE to the world.
         </motion.p>
 
         {/* CTA Buttons */}
@@ -321,20 +273,18 @@ export function HeroSection() {
           className="flex flex-col sm:flex-row items-center justify-center gap-4"
         >
           <AnimatedGradientButton onClick={() => setModalOpen(true)}>
-            ENQUIRE NOW
+            Let's Build Together
             <ArrowRight
               size={16}
               className="group-hover:translate-x-1.5 transition-transform duration-300"
             />
           </AnimatedGradientButton>
 
-          <AnimatedGradientButton
-            variant="outline"
-            onClick={() => scrollTo("#services")}
-          >
-            <Play size={14} className="text-[#F1C40F]" />
-            View Our Work
-          </AnimatedGradientButton>
+          <Link to="/services">
+            <AnimatedGradientButton variant="outline">
+              Explore Our Services
+            </AnimatedGradientButton>
+          </Link>
         </motion.div>
 
         {/* Bottom stats strip */}
@@ -345,9 +295,9 @@ export function HeroSection() {
           className="mt-16 sm:mt-20 flex items-center justify-center gap-8 sm:gap-16"
         >
           {[
-            { value: "3+", label: "Core Services" },
-            { value: "360\u00B0", label: "Full Scope" },
-            { value: "24/7", label: "Dedicated Team" },
+            { value: "50+", label: "Projects Delivered" },
+            { value: "10+", label: "Industries Served" },
+            { value: "UAE", label: "Licensed & Globally Ready" },
           ].map((stat, i) => (
             <motion.div
               key={stat.label}

@@ -1,4 +1,5 @@
 import { useRef, useState } from "react";
+import { Link } from "react-router";
 import { motion, useInView } from "motion/react";
 import {
   Mail,
@@ -22,9 +23,8 @@ export function Footer() {
   const [modalOpen, setModalOpen] = useState(false);
   const [privacyOpen, setPrivacyOpen] = useState(false);
 
-  const scrollTo = (href: string) => {
-    const el = document.querySelector(href);
-    el?.scrollIntoView({ behavior: "smooth" });
+  const scrollToTop = () => {
+    window.scrollTo(0, 0);
   };
 
   const dur = lite ? 0.4 : 0.8;
@@ -159,8 +159,7 @@ export function Footer() {
             className="font-['Inter'] text-[#0A0A0A]/50 max-w-xl mx-auto mb-10 lg:mb-12"
             style={{ fontSize: "1rem", fontWeight: 300, lineHeight: 1.8 }}
           >
-            Let's build something timeless. Contact the Elvera team today to
-            discuss your next project.
+            Let's turn your vision into reality. Get in touch with our team today.
           </motion.p>
 
           {/* Contact Cards */}
@@ -237,7 +236,7 @@ export function Footer() {
                 className="relative z-10 font-['Inter']"
                 style={{ fontSize: "0.9rem", fontWeight: 500, letterSpacing: "0.08em" }}
               >
-                ENQUIRE NOW
+                START YOUR PROJECT
               </span>
               <ArrowRight
                 size={18}
@@ -264,7 +263,7 @@ export function Footer() {
 
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-10 lg:gap-16 mb-14 lg:mb-16">
-            {/* Company */}
+            {/* Column 1: Brand */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={footerInView ? { opacity: 1, y: 0 } : {}}
@@ -274,33 +273,18 @@ export function Footer() {
                 className="font-['Inter'] text-white mb-6 pb-1 border-b border-white/10 inline-block"
                 style={{ fontSize: "0.95rem", fontWeight: 500 }}
               >
-                Company
+                Elvera Solutions LLC
               </h4>
-              <ul className="space-y-3">
-                {[
-                  { label: "About", href: "#about" },
-                  { label: "Services", href: "#services" },
-                  { label: "Projects", href: "#services" },
-                  { label: "Contact", href: "#contact" },
-                ].map((link) => (
-                  <li key={link.label}>
-                    <a
-                      href={link.href}
-                      onClick={(e) => {
-                        e.preventDefault();
-                        scrollTo(link.href);
-                      }}
-                      className="font-['Inter'] text-white/40 hover:text-[#F1C40F] transition-colors duration-300"
-                      style={{ fontSize: "0.85rem", fontWeight: 300 }}
-                    >
-                      {link.label}
-                    </a>
-                  </li>
-                ))}
-              </ul>
+              <p className="font-['Inter'] text-white/60 mb-4" style={{ fontSize: "0.85rem", fontWeight: 300, lineHeight: 1.6 }}>
+                Elevating Brands in the Digital Era
+                <br />
+                UAE Licensed | Globally Trusted
+                <br />
+                License No: 2644692.01
+              </p>
             </motion.div>
 
-            {/* Services */}
+            {/* Column 2: Quick Links */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={footerInView ? { opacity: 1, y: 0 } : {}}
@@ -310,35 +294,32 @@ export function Footer() {
                 className="font-['Inter'] text-white mb-6 pb-1 border-b border-white/10 inline-block"
                 style={{ fontSize: "0.95rem", fontWeight: 500 }}
               >
-                Services
+                Quick Links
               </h4>
               <ul className="space-y-3">
                 {[
-                  "Branding & Advertisement",
-                  "Social Media Management",
-                  "360 Marketing",
-                  "End-To-End Media Cover",
-                  "IT & Integration",
-                  "Full Service",
-                ].map((item) => (
-                  <li key={item}>
-                    <a
-                      href="#services"
-                      onClick={(e) => {
-                        e.preventDefault();
-                        scrollTo("#services");
-                      }}
+                  { label: "Home", href: "/" },
+                  { label: "About Us", href: "/about" },
+                  { label: "Services", href: "/services" },
+                  { label: "Portfolio", href: "/portfolio" },
+                  { label: "Industries", href: "/industries" },
+                  { label: "Contact Us", href: "/contact" },
+                ].map((link) => (
+                  <li key={link.label}>
+                    <Link
+                      to={link.href}
+                      onClick={scrollToTop}
                       className="font-['Inter'] text-white/40 hover:text-[#F1C40F] transition-colors duration-300"
                       style={{ fontSize: "0.85rem", fontWeight: 300 }}
                     >
-                      {item}
-                    </a>
+                      {link.label}
+                    </Link>
                   </li>
                 ))}
               </ul>
             </motion.div>
 
-            {/* Legal */}
+            {/* Column 3: Services */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={footerInView ? { opacity: 1, y: 0 } : {}}
@@ -348,45 +329,32 @@ export function Footer() {
                 className="font-['Inter'] text-white mb-6 pb-1 border-b border-white/10 inline-block"
                 style={{ fontSize: "0.95rem", fontWeight: 500 }}
               >
-                Legal
+                Services
               </h4>
               <ul className="space-y-3">
                 {[
-                  "Terms and Conditions",
-                  "Privacy Policy",
-                  "Data Protection",
+                  "Software Development",
+                  "Digital Marketing",
+                  "Social Media Management",
+                  "Web Design & Development",
+                  "Photography & Videography",
+                  "Cyber Security",
                 ].map((item) => (
                   <li key={item}>
-                    {item === "Privacy Policy" ? (
-                      <button
-                        onClick={() => setPrivacyOpen(true)}
-                        className="font-['Inter'] text-white/40 hover:text-[#F1C40F] transition-colors duration-300 text-left bg-transparent border-none cursor-pointer p-0"
-                        style={{ fontSize: "0.85rem", fontWeight: 300 }}
-                      >
-                        {item}
-                      </button>
-                    ) : item === "Terms and Conditions" || item === "Data Protection" ? (
-                      <span
-                        className="font-['Inter'] text-white/25 cursor-default"
-                        style={{ fontSize: "0.85rem", fontWeight: 300 }}
-                      >
-                        {item}
-                      </span>
-                    ) : (
-                      <a
-                        href="#"
-                        className="font-['Inter'] text-white/40 hover:text-[#F1C40F] transition-colors duration-300"
-                        style={{ fontSize: "0.85rem", fontWeight: 300 }}
-                      >
-                        {item}
-                      </a>
-                    )}
+                    <Link
+                      to="/services"
+                      onClick={scrollToTop}
+                      className="font-['Inter'] text-white/40 hover:text-[#F1C40F] transition-colors duration-300"
+                      style={{ fontSize: "0.85rem", fontWeight: 300 }}
+                    >
+                      {item}
+                    </Link>
                   </li>
                 ))}
               </ul>
             </motion.div>
 
-            {/* Contact */}
+            {/* Column 4: Contact */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={footerInView ? { opacity: 1, y: 0 } : {}}
@@ -400,6 +368,24 @@ export function Footer() {
               </h4>
               <ul className="space-y-4">
                 <li>
+                  <span
+                    className="flex items-start gap-2.5 font-['Inter'] text-white/60"
+                    style={{ fontSize: "0.85rem", fontWeight: 300, lineHeight: 1.6 }}
+                  >
+                    Sharjah Media City Free Zone, UAE
+                  </span>
+                </li>
+                <li>
+                  <a
+                    href="mailto:contact@elverasolutions.com"
+                    className="flex items-center gap-2.5 font-['Inter'] text-white/40 hover:text-[#F1C40F] transition-colors duration-300"
+                    style={{ fontSize: "0.85rem", fontWeight: 300 }}
+                  >
+                    <Mail size={14} className="flex-shrink-0" />
+                    contact@elverasolutions.com
+                  </a>
+                </li>
+                <li>
                   <a
                     href="tel:+971507751293"
                     className="flex items-center gap-2.5 font-['Inter'] text-white/40 hover:text-[#F1C40F] transition-colors duration-300"
@@ -411,12 +397,13 @@ export function Footer() {
                 </li>
                 <li>
                   <a
-                    href="mailto:contact@elverasolutions.com"
+                    href="https://www.elverasolutions.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="flex items-center gap-2.5 font-['Inter'] text-white/40 hover:text-[#F1C40F] transition-colors duration-300"
                     style={{ fontSize: "0.85rem", fontWeight: 300 }}
                   >
-                    <Mail size={14} className="flex-shrink-0" />
-                    contact@elverasolutions.com
+                    www.elverasolutions.com
                   </a>
                 </li>
               </ul>
@@ -471,9 +458,7 @@ export function Footer() {
               className="font-['Inter'] text-white/25 flex items-center gap-1"
               style={{ fontSize: "0.75rem", fontWeight: 300 }}
             >
-              &copy; 2026 Elvera Solutions. Made with{" "}
-              <Heart size={10} className="text-[#F1C40F] inline" fill="#F1C40F" />{" "}
-              All rights reserved.
+              &copy; 2025 Elvera Solutions LLC. All Rights Reserved.
             </p>
             <div className="flex items-center gap-6">
               <button
@@ -484,7 +469,7 @@ export function Footer() {
                 Privacy Policy
               </button>
               <span
-                className="font-['Inter'] text-white/25 cursor-default"
+                className="font-['Inter'] text-white/25 cursor-default hover:text-[#F1C40F] transition-colors duration-300"
                 style={{ fontSize: "0.75rem", fontWeight: 300 }}
               >
                 Terms of Service

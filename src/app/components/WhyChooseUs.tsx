@@ -7,7 +7,7 @@ import {
   useMotionValue,
   animate,
 } from "motion/react";
-import { Layers, Cpu, Target } from "lucide-react";
+import { Layers, Cpu, Target, Star } from "lucide-react";
 import { useLiteAnimations } from "./useMediaQuery";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 
@@ -53,31 +53,36 @@ function AnimatedCounter({
 
 const factors = [
   {
+    icon: Target,
+    title: "Tailored Strategies",
+    description: "We don’t do one-size-fits-all. Every solution is built around your specific goals.",
+    numericStat: 100,
+    statSuffix: "%",
+    statLabel: "Custom Fit",
+  },
+  {
     icon: Layers,
-    title: "Integrated Approach",
-    description:
-      "We handle everything from the first camera click to the final ad spend. One team, one vision, one seamless experience.",
+    title: "Cross-Disciplinary Expertise",
+    description: "From code to creative, our team brings diverse skills under one roof.",
     numericStat: 360,
     statSuffix: "\u00B0",
     statLabel: "Full-Service",
   },
   {
-    icon: Cpu,
-    title: "Technical Mastery",
-    description:
-      "We use state-of-the-art imaging and web technology. Every pixel, every frame, every line of code is crafted to perfection.",
-    numericStat: 100,
-    statSuffix: "%",
-    statLabel: "Cutting-Edge",
+    icon: Star,
+    title: "Proven Track Record",
+    description: "We’ve partnered with top brands and government entities across the UAE.",
+    numericStat: 50,
+    statSuffix: "+",
+    statLabel: "Projects Delivered",
   },
   {
-    icon: Target,
-    title: "Strategic Depth",
-    description:
-      "Every creative choice we make is backed by marketing logic. Beautiful work that doesn't convert is just decoration.",
-    numericStat: 10,
-    statSuffix: "x",
-    statLabel: "ROI Multiplier",
+    icon: Cpu,
+    title: "Future-Ready Tech",
+    description: "We leverage AI and modern frameworks to ensure your business stays ahead.",
+    numericStat: 24,
+    statSuffix: "/7",
+    statLabel: "Innovation",
   },
 ];
 
@@ -164,8 +169,8 @@ function ShowcaseCarousel({ inView, lite }: { inView: boolean; lite: boolean }) 
             key={i}
             onClick={() => setActive(i)}
             className={`h-1 rounded-full transition-all duration-500 cursor-pointer ${active === i
-                ? "w-8 bg-[#F1C40F]"
-                : "w-2 bg-white/15 hover:bg-white/30"
+              ? "w-8 bg-[#F1C40F]"
+              : "w-2 bg-white/15 hover:bg-white/30"
               }`}
           />
         ))}
@@ -283,13 +288,12 @@ export function WhyChooseUs() {
             className="font-['Inter'] text-white/40"
             style={{ fontSize: "1rem", fontWeight: 300, lineHeight: 1.8 }}
           >
-            What sets us apart isn't just what we do, it's how everything
-            connects. Here's why brands choose Elvera.
+            Setting the new standard for digital excellence.
           </motion.p>
         </div>
 
         {/* Factor Cards */}
-        <div className="grid md:grid-cols-3 gap-5 lg:gap-8">
+        <div className="grid md:grid-cols-2 gap-5 lg:gap-8">
           {factors.map((factor, i) => (
             <motion.div
               key={factor.title}

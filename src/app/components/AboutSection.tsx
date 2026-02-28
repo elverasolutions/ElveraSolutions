@@ -1,31 +1,32 @@
 import { useRef } from "react";
+import { Link } from "react-router";
 import {
   motion,
   useInView,
   useScroll,
   useTransform,
 } from "motion/react";
-import { Sparkles, TrendingUp, Globe } from "lucide-react";
+import { Sparkles, TrendingUp, Globe, ArrowRight } from "lucide-react";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 import { useLiteAnimations } from "./useMediaQuery";
 
 const pillars = [
   {
-    icon: Sparkles,
-    title: "Media Production",
-    description: "High-fidelity visual storytelling that captivates and converts.",
+    icon: Globe,
+    title: "Software & Web",
+    description: "Custom digital infrastructure and robust web platforms built for scale.",
   },
   {
     icon: TrendingUp,
-    title: "Strategic Marketing",
+    title: "Marketing & Social",
     description:
-      "Data-driven growth strategies that put your brand center stage.",
+      "Data-driven strategic campaigns and management that grow your presence.",
   },
   {
-    icon: Globe,
-    title: "Digital Infrastructure",
+    icon: Sparkles,
+    title: "Photo & Video",
     description:
-      "Robust web ecosystems that power your brand's digital presence.",
+      "High-impact visual content that tells your brand story vividly.",
   },
 ];
 
@@ -75,7 +76,7 @@ export function AboutSection() {
             className="font-['Inter'] text-[#9B59B6] tracking-[0.25em]"
             style={{ fontSize: "0.7rem", fontWeight: 500 }}
           >
-            ABOUT US
+            WHO WE ARE
           </span>
         </motion.div>
 
@@ -98,8 +99,8 @@ export function AboutSection() {
                   lineHeight: 1.15,
                 }}
               >
-                The Elvera{" "}
-                <span className="italic text-[#F1C40F]">Edge</span>
+                A Digital{" "}
+                <span className="italic text-[#F1C40F]">Powerhouse</span>
               </motion.h2>
             </div>
 
@@ -110,12 +111,7 @@ export function AboutSection() {
               className="font-['Inter'] text-[#0A0A0A]/60 mb-6"
               style={{ fontSize: "1rem", fontWeight: 300, lineHeight: 1.9 }}
             >
-              At Elvera, we don't just create content, we create{" "}
-              <span className="text-[#0A0A0A]" style={{ fontWeight: 500 }}>
-                impact
-              </span>
-              . We believe that a brand's story is only as strong as the medium
-              it lives on and the strategy behind its reach.
+              Elvera Solutions is a UAE-based digital agency licensed in Sharjah Media City Free Zone. We partner with startups, SMEs, large enterprises, government entities, and e-commerce businesses to deliver end-to-end digital solutions.
             </motion.p>
 
             <motion.p
@@ -125,14 +121,11 @@ export function AboutSection() {
               className="font-['Inter'] text-[#0A0A0A]/50 mb-10"
               style={{ fontSize: "0.95rem", fontWeight: 300, lineHeight: 1.9 }}
             >
-              Running a company is hard enough without having to manage five
-              different agencies. At ELVERA Solutions, we bridge the gap between
-              your technology and your story. We build the secure systems you
-              need to stay safe and create the media that gets you noticed.
+              From software development and web design to digital marketing, social media management, and professional photography & videography. We don't just deliver services. <span className="text-[#0A0A0A]" style={{ fontWeight: 500 }}>We deliver results.</span>
             </motion.p>
 
             {/* Pillars */}
-            <div className="space-y-5">
+            <div className="space-y-5 mb-10">
               {pillars.map((pillar, i) => (
                 <motion.div
                   key={pillar.title}
@@ -173,6 +166,39 @@ export function AboutSection() {
                 </motion.div>
               ))}
             </div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: dur, delay: dl(0.8) }}
+            >
+              <Link
+                to="/about"
+                onClick={() => window.scrollTo(0, 0)}
+                className="group relative inline-flex items-center gap-3 px-8 py-4 rounded-full text-white overflow-hidden cursor-pointer"
+              >
+                <span
+                  className="absolute inset-0 rounded-full"
+                  style={{
+                    background:
+                      "linear-gradient(135deg, #9B59B6, #7D3C98, #9B59B6, #AF7AC5, #9B59B6)",
+                    backgroundSize: "400% 400%",
+                    animation: "gradientShift 4s ease infinite",
+                  }}
+                />
+                <span
+                  className="relative z-10 font-['Inter']"
+                  style={{ fontSize: "0.85rem", fontWeight: 500, letterSpacing: "0.05em" }}
+                >
+                  Discover Our Story
+                </span>
+                <ArrowRight
+                  size={16}
+                  className="relative z-10 group-hover:translate-x-1.5 transition-transform duration-300"
+                />
+              </Link>
+            </motion.div>
+
           </motion.div>
 
           {/* Right - Image */}
@@ -185,8 +211,8 @@ export function AboutSection() {
               className="relative rounded-3xl overflow-hidden"
             >
               <ImageWithFallback
-                src="https://images.unsplash.com/photo-1750175676515-af65b1eca9f4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxleGNpdGVkJTIwaGFwcHklMjBwcm9mZXNzaW9uYWwlMjB3b21hbiUyMGNlbGVicmF0aW5nJTIwc3VjY2Vzc3xlbnwxfHx8fDE3NzE2OTU5OTl8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
-                alt="ELVERA Creative Director"
+                src="/images/about.png"
+                alt="Elvera Solutions Team"
                 className="w-full h-[400px] lg:h-[600px] object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#9B59B6]/20 via-transparent to-transparent" />

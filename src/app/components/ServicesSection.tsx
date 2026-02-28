@@ -1,4 +1,5 @@
 import { useRef } from "react";
+import { Link } from "react-router";
 import {
   motion,
   useInView,
@@ -6,70 +7,66 @@ import {
   useTransform,
 } from "motion/react";
 import {
+  Code,
+  Layout,
   Megaphone,
+  Share2,
   Camera,
-  Globe,
-  ArrowUpRight,
-  BarChart3,
-  Mail,
-  Newspaper,
-  Lightbulb,
-  MapPin,
-  Video,
-  Aperture,
-  FolderOpen,
-  LayoutGrid,
-  FileText,
-  PenTool,
+  Cpu,
+  ArrowRight,
 } from "lucide-react";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 import { useLiteAnimations } from "./useMediaQuery";
 
 const services = [
   {
-    id: "marketing",
+    id: "software",
     number: "01",
+    icon: Code,
+    title: "Software Engineering",
+    subtitle: "Custom software, web platforms, and mobile apps built for performance and scale.",
+    image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+  },
+  {
+    id: "web-app",
+    number: "02",
+    icon: Layout,
+    title: "Web & App Development",
+    subtitle: "Stunning, high-converting websites and applications tailored to your business needs.",
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+  },
+  {
+    id: "marketing",
+    number: "03",
     icon: Megaphone,
-    title: "Strategic Marketing & PR",
-    subtitle: "Precision-engineered growth to put your brand center stage.",
-    image:
-      "https://images.unsplash.com/photo-1552664730-d307ca884978?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
-    items: [
-      { icon: BarChart3, label: "Full-Scale Ad Campaigns", desc: "Concept-to-consumer strategy across all channels." },
-      { icon: Mail, label: "Digital & Direct Marketing", desc: "High-conversion tactics to reach your specific audience." },
-      { icon: Newspaper, label: "Public Relations", desc: "Managing your narrative and building industry authority." },
-      { icon: Lightbulb, label: "Marketing Consulting", desc: "Data-backed insights to optimize your business trajectory." },
-      { icon: MapPin, label: "Outdoor Advertising", desc: "Dominating the physical landscape with bold visibility." },
-    ],
+    title: "Digital Marketing & SEO",
+    subtitle: "Data-driven campaigns that increase visibility, traffic, and conversions.",
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+  },
+  {
+    id: "social",
+    number: "04",
+    icon: Share2,
+    title: "Social Media Management",
+    subtitle: "Engaging content and community management across all major social platforms.",
+    image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
   },
   {
     id: "media",
-    number: "02",
+    number: "05",
     icon: Camera,
-    title: "Media & Visual Production",
-    subtitle: "High-fidelity storytelling captured through the lens.",
-    image:
-      "https://images.unsplash.com/photo-1768464037451-374c8c005699?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBjaW5lbWF0b2dyYXBoeSUyMGNhbWVyYSUyMGZpbG0lMjBwcm9kdWN0aW9ufGVufDF8fHx8MTc3MTY3ODg5M3ww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-    items: [
-      { icon: Video, label: "Commercial & Consumer Media", desc: "Professional photography and videography tailored for brands and individuals." },
-      { icon: Aperture, label: "Specialized Imaging", desc: "Advanced visual techniques and film processing for unique aesthetic needs." },
-      { icon: FolderOpen, label: "Media Management", desc: "Professional handling and curation of your brand's visual assets." },
-    ],
+    title: "Media Production",
+    subtitle: "High-end photography and videography that captures your brand's essence.",
+    image: "https://images.unsplash.com/photo-1605814500985-7822a16d863f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
   },
   {
-    id: "web",
-    number: "03",
-    icon: Globe,
-    title: "Web Portals & Content Ecosystems",
-    subtitle: "The digital architecture your brand deserves.",
-    image:
-      "https://images.unsplash.com/photo-1760548425425-e42e77fa38f1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjB3ZWIlMjBkZXNpZ24lMjBkaWdpdGFsJTIwaW50ZXJmYWNlJTIwZGFya3xlbnwxfHx8fDE3NzE2Nzg4OTN8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-    items: [
-      { icon: LayoutGrid, label: "Web Portal Operation", desc: "End-to-end management of complex digital hubs." },
-      { icon: FileText, label: "Media & Blogging Sites", desc: "Creating destination platforms for news, lifestyle, and niche communities." },
-      { icon: PenTool, label: "Content Services", desc: "Professional blogging and editorial management to keep your audience engaged." },
-    ],
-  },
+    id: "ai",
+    number: "06",
+    icon: Cpu,
+    title: "Automation & AI Solutions",
+    subtitle: "Streamlining operations and integrating smart technology for future-ready businesses.",
+    image: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+  }
 ];
 
 function ServiceCard({
@@ -88,37 +85,37 @@ function ServiceCard({
     target: ref,
     offset: ["start end", "end start"],
   });
-  const cardY = useTransform(scrollYProgress, [0, 1], lite ? [0, 0] : [40, -20]);
+  const cardY = useTransform(scrollYProgress, [0, 1], lite ? [0, 0] : [20, -10]);
 
   const dur = lite ? 0.4 : 0.8;
-  const dl = lite ? index * 0.08 : index * 0.2;
+  const dl = lite ? index * 0.05 : index * 0.1;
 
   return (
     <motion.div
       ref={ref}
       style={lite ? { position: "relative" as const } : { position: "relative" as const, y: cardY }}
-      initial={{ opacity: 0, y: 40 }}
+      initial={{ opacity: 0, y: 30 }}
       animate={isInView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: dur, delay: dl, ease: [0.22, 1, 0.36, 1] }}
-      className="group relative"
+      className="group relative h-full"
     >
       <motion.div
         whileHover={lite ? undefined : { y: -8, transition: { duration: 0.4, ease: [0.22, 1, 0.36, 1] } }}
-        className="relative bg-white rounded-3xl overflow-hidden border border-[#0A0A0A]/5 hover:border-[#9B59B6]/20 transition-all duration-500 hover:shadow-[0_20px_60px_rgba(155,89,182,0.08)]"
+        className="relative bg-white rounded-3xl overflow-hidden border border-[#0A0A0A]/5 hover:border-[#9B59B6]/20 transition-all duration-500 hover:shadow-[0_20px_60px_rgba(155,89,182,0.08)] h-full flex flex-col"
       >
         {/* Image Section */}
-        <div className="relative h-56 lg:h-64 overflow-hidden">
+        <div className="relative h-56 lg:h-64 overflow-hidden shrink-0">
           <ImageWithFallback
             src={service.image}
             alt={service.title}
             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A]/70 via-[#0A0A0A]/20 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A]/80 via-[#0A0A0A]/20 to-transparent" />
 
           {/* Number badge */}
           <div className="absolute top-5 left-5">
             <span
-              className="font-['Playfair_Display'] text-white/60 bg-white/10 backdrop-blur-sm px-3 py-1 rounded-full"
+              className="font-['Playfair_Display'] text-white/80 bg-white/10 backdrop-blur-md px-3 py-1 rounded-full border border-white/20"
               style={{ fontSize: "0.75rem", fontWeight: 400, letterSpacing: "0.1em" }}
             >
               {service.number}
@@ -127,67 +124,28 @@ function ServiceCard({
 
           {/* Title overlay */}
           <div className="absolute bottom-5 left-5 right-5 lg:bottom-6 lg:left-6 lg:right-6">
-            <div className="flex items-center gap-3 mb-2">
-              <div className="w-9 h-9 rounded-xl bg-[#9B59B6]/20 backdrop-blur-sm flex items-center justify-center">
-                <service.icon size={16} className="text-white" />
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-xl bg-[#9B59B6] flex items-center justify-center shrink-0">
+                <service.icon size={20} className="text-white" />
               </div>
               <h3
                 className="font-['Playfair_Display'] text-white"
-                style={{ fontSize: "clamp(1.15rem, 2vw, 1.5rem)", fontWeight: 500 }}
+                style={{ fontSize: "clamp(1.15rem, 2vw, 1.35rem)", fontWeight: 500, lineHeight: 1.2 }}
               >
                 {service.title}
               </h3>
             </div>
-            <p
-              className="font-['Inter'] text-white/60"
-              style={{ fontSize: "0.85rem", fontWeight: 300 }}
-            >
-              {service.subtitle}
-            </p>
           </div>
         </div>
 
-        {/* Items */}
-        <div className="p-5 lg:p-8">
-          <div className="space-y-3 lg:space-y-4">
-            {service.items.map((item, i) => (
-              <motion.div
-                key={item.label}
-                initial={{ opacity: 0, x: -10 }}
-                animate={isInView ? { opacity: 1, x: 0 } : {}}
-                transition={{
-                  duration: lite ? 0.3 : 0.5,
-                  delay: lite ? dl + i * 0.03 : dl + 0.3 + i * 0.08,
-                  ease: [0.22, 1, 0.36, 1],
-                }}
-                className="group/item flex items-start gap-3 p-2.5 lg:p-3 rounded-xl hover:bg-[#F4ECF7]/60 transition-all duration-300 cursor-default"
-              >
-                <div className="flex-shrink-0 w-8 h-8 rounded-lg bg-[#F4ECF7] flex items-center justify-center group-hover/item:bg-[#9B59B6]/10 transition-colors duration-300">
-                  <item.icon size={14} className="text-[#9B59B6]" />
-                </div>
-                <div className="flex-1 min-w-0">
-                  <div className="flex items-center gap-2">
-                    <h4
-                      className="font-['Inter'] text-[#0A0A0A]"
-                      style={{ fontSize: "0.85rem", fontWeight: 600 }}
-                    >
-                      {item.label}
-                    </h4>
-                    <ArrowUpRight
-                      size={12}
-                      className="text-[#F1C40F] opacity-0 group-hover/item:opacity-100 transition-opacity duration-300 hidden sm:block"
-                    />
-                  </div>
-                  <p
-                    className="font-['Inter'] text-[#0A0A0A]/45 mt-0.5"
-                    style={{ fontSize: "0.8rem", fontWeight: 300, lineHeight: 1.5 }}
-                  >
-                    {item.desc}
-                  </p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
+        {/* Description body */}
+        <div className="p-5 flex-1 flex flex-col justify-center">
+          <p
+            className="font-['Inter'] text-[#0A0A0A]/70"
+            style={{ fontSize: "0.95rem", fontWeight: 300, lineHeight: 1.6 }}
+          >
+            {service.subtitle}
+          </p>
         </div>
       </motion.div>
     </motion.div>
@@ -228,7 +186,7 @@ export function ServicesSection() {
 
       <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
         {/* Section Header */}
-        <div ref={headerRef} className="max-w-2xl mb-12 lg:mb-20">
+        <div ref={headerRef} className="max-w-2xl mb-12 lg:mb-16">
           <motion.div
             initial={{ opacity: 0 }}
             animate={headerInView ? { opacity: 1 } : {}}
@@ -265,8 +223,8 @@ export function ServicesSection() {
                 lineHeight: 1.15,
               }}
             >
-              The Three{" "}
-              <span className="italic text-[#F1C40F]">Pillars</span>
+              End-to-End{" "}
+              <span className="italic text-[#F1C40F]">Digital Solutions</span>
             </motion.h2>
           </div>
 
@@ -277,9 +235,7 @@ export function ServicesSection() {
             className="font-['Inter'] text-[#0A0A0A]/50"
             style={{ fontSize: "1rem", fontWeight: 300, lineHeight: 1.8 }}
           >
-            By integrating Media Production, Strategic Marketing, and Digital
-            Infrastructure, we provide a seamless loop of growth for businesses,
-            creators, and innovators.
+            We provide a comprehensive suite of services under one roof, bridging the gap between your technology and your story. No more managing multiple agencies.
           </motion.p>
         </div>
 
@@ -289,6 +245,33 @@ export function ServicesSection() {
             <ServiceCard key={service.id} service={service} index={index} lite={lite} />
           ))}
         </div>
+
+        {/* View All Services CTA */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={headerInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: dur, delay: dl(0.6) }}
+          className="mt-12 lg:mt-16 flex justify-center"
+        >
+          <Link
+            to="/services"
+            onClick={() => window.scrollTo(0, 0)}
+            className="group font-['Inter'] relative flex items-center gap-3 px-8 py-4 rounded-full text-white overflow-hidden cursor-pointer"
+            style={{ fontSize: "0.85rem", fontWeight: 500, letterSpacing: "0.05em" }}
+          >
+            <span
+              className="absolute inset-0 rounded-full"
+              style={{
+                background:
+                  "linear-gradient(135deg, #9B59B6, #7D3C98, #9B59B6, #AF7AC5, #9B59B6)",
+                backgroundSize: "400% 400%",
+                animation: "gradientShift 4s ease infinite",
+              }}
+            />
+            <span className="relative z-10 flex items-center gap-2">View All Services</span>
+            <ArrowRight size={16} className="relative z-10 group-hover:translate-x-1.5 transition-transform duration-300" />
+          </Link>
+        </motion.div>
       </div>
     </section>
   );
