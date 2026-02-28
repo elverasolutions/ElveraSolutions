@@ -75,7 +75,7 @@ function CaseStudies() {
             industry: "Public Sector",
             category: "Government",
             result: "Streamlined Citizen Services",
-            image: "https://images.unsplash.com/photo-1576402425895-3abcad19d9b6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+            image: "https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
         },
         {
             title: "Launch Campaign",

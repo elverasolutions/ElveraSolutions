@@ -69,7 +69,7 @@ function IndustryDetails() {
             icon: HeartPulse,
             title: "Healthcare & Wellness",
             desc: "Building trust-driven digital experiences, from telemedicine apps to clinic marketing campaigns.",
-            img: "https://images.unsplash.com/photo-1538108149393-fbbd81896dc5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800",
+            img: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800",
         },
         {
             icon: Building2,
@@ -87,7 +87,7 @@ function IndustryDetails() {
             icon: Wallet,
             title: "Finance & Fintech",
             desc: "Creating secure, intuitive interfaces that demystify complex financial products and drive user adoption.",
-            img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800",
+            img: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800",
         },
     ];
 

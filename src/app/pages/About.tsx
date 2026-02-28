@@ -211,10 +211,10 @@ function AboutTeam() {
     const isInView = useInView(ref, { once: true, margin: "-100px" });
 
     const team = [
-        { name: "Executive Team", role: "Leadership", img: "https://images.unsplash.com/photo-1560250097-0b93528c311a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=600" },
-        { name: "Creative Directors", role: "Design & Media", img: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=600" },
-        { name: "Lead Engineers", role: "Technology", img: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=600" },
-        { name: "Growth Strategists", role: "Marketing", img: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=600" },
+        { name: "Executive Team", role: "Leadership", img: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=600" },
+        { name: "Creative Directors", role: "Design & Media", img: "https://images.unsplash.com/photo-1550684848-fac1c5b4e853?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=600" },
+        { name: "Lead Engineers", role: "Technology", img: "https://images.unsplash.com/photo-1550684376-efcbd6e3f031?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=600" },
+        { name: "Growth Strategists", role: "Marketing", img: "https://images.unsplash.com/photo-1550859491-1ea544eb4bb1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=600" },
     ];
 
     return (
