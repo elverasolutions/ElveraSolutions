@@ -111,7 +111,7 @@ export function AboutSection() {
               className="font-['Inter'] text-[#0A0A0A]/60 mb-6"
               style={{ fontSize: "1rem", fontWeight: 300, lineHeight: 1.9 }}
             >
-              Elvera Solutions is a UAE-based digital agency licensed in Sharjah Media City Free Zone. We partner with startups, SMEs, large enterprises, government entities, and e-commerce businesses to deliver end-to-end digital solutions.
+              Elvera Solutions is a UAE-based digital agency licensed in Sharjah Media City Free Zone. We partner with startups, SMEs, large enterprises, and e-commerce businesses to deliver end-to-end digital solutions.
             </motion.p>
 
             <motion.p

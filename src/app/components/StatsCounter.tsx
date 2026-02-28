@@ -44,7 +44,7 @@ function Counter({
 
 const stats = [
   {
-    value: 150,
+    value: 50,
     suffix: "+",
     label: "Projects Delivered",
     description: "Across marketing, media & web",

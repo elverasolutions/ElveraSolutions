@@ -27,9 +27,6 @@ function AboutHero() {
                     animate={isInView ? { opacity: 1, scale: 1 } : {}}
                     transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
                 >
-                    <span className="inline-block py-1.5 px-4 rounded-full bg-white/5 border border-white/10 text-[#F1C40F] text-sm font-medium tracking-widest mb-6">
-                        EST. IN THE UAE
-                    </span>
                     <h1
                         className="font-['Playfair_Display'] text-white mb-6"
                         style={{ fontSize: "clamp(3rem, 6vw, 5rem)", fontWeight: 500, lineHeight: 1.1 }}
@@ -206,63 +203,6 @@ function TrustModule() {
     );
 }
 
-function AboutTeam() {
-    const ref = useRef(null);
-    const isInView = useInView(ref, { once: true, margin: "-100px" });
-
-    const team = [
-        { name: "Executive Team", role: "Leadership", icon: User },
-        { name: "Creative Directors", role: "Design & Media", icon: PenTool },
-        { name: "Lead Engineers", role: "Technology", icon: Users },
-        { name: "Growth Strategists", role: "Marketing", icon: TrendingUp },
-    ];
-
-    return (
-        <section ref={ref} className="py-24 bg-[#FAFAFA] relative overflow-hidden">
-            <div className="max-w-7xl mx-auto px-6 lg:px-8">
-                <div className="text-center mb-16">
-                    <motion.div
-                        initial={{ opacity: 0, scaleX: 0 }}
-                        animate={isInView ? { opacity: 1, scaleX: 1 } : {}}
-                        transition={{ duration: 0.8 }}
-                        className="flex items-center justify-center gap-4 mb-4"
-                    >
-                        <div className="w-8 h-[1px] bg-[#9B59B6]" />
-                        <span className="font-['Inter'] text-[#9B59B6] tracking-[0.25em] text-sm font-medium">LEADERSHIP</span>
-                        <div className="w-8 h-[1px] bg-[#9B59B6]" />
-                    </motion.div>
-                    <motion.h2
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={isInView ? { opacity: 1, y: 0 } : {}}
-                        transition={{ duration: 0.6, delay: 0.2 }}
-                        className="font-['Playfair_Display'] text-[#0A0A0A] text-4xl lg:text-5xl"
-                    >
-                        The Minds Behind the Magic
-                    </motion.h2>
-                </div>
-
-                <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
-                    {team.map((member, i) => (
-                        <motion.div
-                            key={i}
-                            initial={{ opacity: 0, y: 30 }}
-                            animate={isInView ? { opacity: 1, y: 0 } : {}}
-                            transition={{ duration: 0.6, delay: 0.3 + i * 0.1 }}
-                            className="group cursor-pointer text-center"
-                        >
-                            <div className="relative aspect-square mb-6 rounded-2xl overflow-hidden bg-white border border-black/5 flex items-center justify-center shadow-lg group-hover:shadow-xl group-hover:border-[#9B59B6]/30 transition-all duration-500">
-                                <member.icon size={64} className="text-[#9B59B6] opacity-80 group-hover:scale-110 group-hover:opacity-100 transition-all duration-500 ease-[0.22,1,0.36,1]" strokeWidth={1.5} />
-                            </div>
-                            <h3 className="font-['Inter'] text-xl font-semibold text-[#0A0A0A] mb-1">{member.name}</h3>
-                            <p className="font-['Inter'] text-[#9B59B6] font-medium text-sm tracking-wide">{member.role}</p>
-                        </motion.div>
-                    ))}
-                </div>
-            </div>
-        </section>
-    );
-}
-
 export function About() {
     useSEO(
         "About Us | Elvera Solutions",
@@ -275,7 +215,6 @@ export function About() {
             <AboutStory />
             <MissionVision />
             <TrustModule />
-            <AboutTeam />
             <CTABanner />
         </main>
     );

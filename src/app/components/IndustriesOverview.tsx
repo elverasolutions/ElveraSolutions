@@ -7,7 +7,6 @@ import { ImageWithFallback } from "./figma/ImageWithFallback";
 
 const industries = [
     { icon: ShoppingBag, name: "E-commerce & Retail" },
-    { icon: Landmark, name: "Government & Public Sector" },
     { icon: HeartPulse, name: "Healthcare & Wellness" },
     { icon: Building2, name: "Real Estate & Construction" },
     { icon: Rocket, name: "Tech Startups" },

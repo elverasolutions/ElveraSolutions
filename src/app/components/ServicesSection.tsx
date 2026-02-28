@@ -57,7 +57,7 @@ const services = [
     icon: Camera,
     title: "Media Production",
     subtitle: "High-end photography and videography that captures your brand's essence.",
-    image: "https://images.unsplash.com/photo-1605810230434-7631ac76ec81?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+    image: "https://images.unsplash.com/photo-1579621970258-2083bc7fb240?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
   },
   {
     id: "ai",
@@ -65,7 +65,7 @@ const services = [
     icon: Cpu,
     title: "Automation & AI Solutions",
     subtitle: "Streamlining operations and integrating smart technology for future-ready businesses.",
-    image: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+    image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
   }
 ];
 
