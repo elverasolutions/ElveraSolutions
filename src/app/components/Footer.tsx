@@ -13,6 +13,7 @@ import {
 import { useLiteAnimations } from "./useMediaQuery";
 import { EnquiryModal } from "./EnquiryModal";
 import { PrivacyPolicyModal } from "./PrivacyPolicyModal";
+import { TermsOfServiceModal } from "./TermsOfServiceModal";
 
 export function Footer() {
   const lite = useLiteAnimations();
@@ -22,6 +23,7 @@ export function Footer() {
   const footerInView = useInView(footerRef, { once: true, margin: "-30px" });
   const [modalOpen, setModalOpen] = useState(false);
   const [privacyOpen, setPrivacyOpen] = useState(false);
+  const [termsOpen, setTermsOpen] = useState(false);
 
   const scrollToTop = () => {
     window.scrollTo(0, 0);
@@ -279,8 +281,6 @@ export function Footer() {
                 Elevating Brands in the Digital Era
                 <br />
                 UAE Licensed | Globally Trusted
-                <br />
-                License No: 2644692.01
               </p>
             </motion.div>
 
@@ -456,7 +456,7 @@ export function Footer() {
               className="font-['Inter'] text-white/25 flex items-center gap-1"
               style={{ fontSize: "0.75rem", fontWeight: 300 }}
             >
-              &copy; 2025 Elvera Solutions LLC. All Rights Reserved.
+              &copy; 2026 Elvera Solutions LLC. All Rights Reserved.
             </p>
             <div className="flex items-center gap-6">
               <button
@@ -466,12 +466,13 @@ export function Footer() {
               >
                 Privacy Policy
               </button>
-              <span
-                className="font-['Inter'] text-white/25 cursor-default hover:text-[#F1C40F] transition-colors duration-300"
+              <button
+                onClick={() => setTermsOpen(true)}
+                className="font-['Inter'] text-white/25 hover:text-[#F1C40F] transition-colors duration-300 bg-transparent border-none cursor-pointer p-0"
                 style={{ fontSize: "0.75rem", fontWeight: 300 }}
               >
                 Terms of Service
-              </span>
+              </button>
             </div>
           </motion.div>
         </div>
@@ -482,6 +483,9 @@ export function Footer() {
 
       {/* Privacy Policy Modal */}
       <PrivacyPolicyModal open={privacyOpen} onClose={() => setPrivacyOpen(false)} />
+
+      {/* Terms of Service Modal */}
+      <TermsOfServiceModal open={termsOpen} onClose={() => setTermsOpen(false)} />
     </>
   );
 }
