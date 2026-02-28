@@ -57,7 +57,7 @@ const services = [
     icon: Camera,
     title: "Media Production",
     subtitle: "High-end photography and videography that captures your brand's essence.",
-    image: "https://images.unsplash.com/photo-1579621970258-2083bc7fb240?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+    image: "https://images.unsplash.com/photo-1590602847861-f357a9332bbc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
   },
   {
     id: "ai",
