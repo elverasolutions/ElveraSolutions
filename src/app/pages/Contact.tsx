@@ -1,6 +1,6 @@
 import { useState, useRef } from "react";
 import { motion, useInView } from "motion/react";
-import { MapPin, Mail, Phone, Linkedin, Instagram, Twitter, ArrowRight } from "lucide-react";
+import { MapPin, Mail, Linkedin, Instagram, Twitter, ArrowRight } from "lucide-react";
 import { ImageWithFallback } from "../components/figma/ImageWithFallback";
 import { useSEO } from "../hooks/useSEO";
 
@@ -95,17 +95,6 @@ function ContactSection() {
                                     <h4 className="font-['Inter'] text-black/90 font-semibold mb-1">Email</h4>
                                     <a href="mailto:hello@elverasolutions.com" className="font-['Inter'] text-black/60 hover:text-[#9B59B6] hover:underline transition-colors">
                                         hello@elverasolutions.com
-                                    </a>
-                                </div>
-                            </div>
-                            <div className="flex items-start gap-4">
-                                <div className="w-12 h-12 rounded-full bg-[#9B59B6]/10 flex items-center justify-center shrink-0">
-                                    <Phone size={22} className="text-[#9B59B6]" />
-                                </div>
-                                <div>
-                                    <h4 className="font-['Inter'] text-black/90 font-semibold mb-1">Phone</h4>
-                                    <a href="tel:+971500000000" className="font-['Inter'] text-black/60 hover:text-[#9B59B6] hover:underline transition-colors">
-                                        +971 50 XXXXXXX
                                     </a>
                                 </div>
                             </div>
