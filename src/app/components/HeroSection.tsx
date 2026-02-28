@@ -61,14 +61,37 @@ function AnimatedGradientButton({
 /*  Headline                                                          */
 /* ------------------------------------------------------------------ */
 
+const rotatingWords = ["Velocity", "Impact", "Elegance", "Legacy"];
+
 function AnimatedHeadline({ lite }: { lite: boolean }) {
-  const line1Words = ["Elevating", "Brands"];
-  const line2Words = ["in", "the", "Digital"];
-  const accentWord = "Era";
+  const line1Words = ["Where", "Vision"];
+  const line2Words = ["Meets"];
+
+  const [wordIndex, setWordIndex] = useState(0);
+  const [initialDone, setInitialDone] = useState(false);
 
   const baseDuration = lite ? 0.5 : 1;
   const baseDelay = lite ? 0 : 0.6;
   const stagger = lite ? 0.05 : 0.12;
+
+  // Start cycling after initial entrance animation completes
+  const entranceEnd =
+    baseDelay + (line1Words.length + line2Words.length + 1) * stagger + baseDuration;
+
+  useEffect(() => {
+    const startTimer = setTimeout(() => {
+      setInitialDone(true);
+    }, entranceEnd * 1000 + 1500); // extra 1.5s pause after entrance
+    return () => clearTimeout(startTimer);
+  }, [entranceEnd]);
+
+  useEffect(() => {
+    if (!initialDone) return;
+    const interval = setInterval(() => {
+      setWordIndex((prev) => (prev + 1) % rotatingWords.length);
+    }, 2800);
+    return () => clearInterval(interval);
+  }, [initialDone]);
 
   return (
     <div
@@ -83,7 +106,7 @@ function AnimatedHeadline({ lite }: { lite: boolean }) {
         <div className="flex items-center justify-center gap-[0.3em] flex-wrap">
           {line1Words.map((word, i) => (
             <motion.span
-              key={word + i}
+              key={word}
               initial={{ y: "110%", opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{
@@ -99,10 +122,10 @@ function AnimatedHeadline({ lite }: { lite: boolean }) {
         </div>
       </div>
       <div>
-        <div className="flex items-center justify-center gap-[0.3em] flex-wrap mt-2">
+        <div className="flex items-center justify-center gap-[0.3em] flex-wrap">
           {line2Words.map((word, i) => (
             <motion.span
-              key={word + i}
+              key={word}
               initial={{ y: "110%", opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{
@@ -116,19 +139,41 @@ function AnimatedHeadline({ lite }: { lite: boolean }) {
             </motion.span>
           ))}
 
-          {/* Static accent word */}
-          <motion.span
-            initial={{ y: "110%", opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{
-              duration: baseDuration,
-              delay: baseDelay + (line1Words.length + line2Words.length) * stagger,
-              ease: [0.22, 1, 0.36, 1],
-            }}
-            className="inline-block italic text-[#F1C40F]"
-          >
-            {accentWord}
-          </motion.span>
+          {/* Rotating accent word - fixed-width grid prevents layout shift */}
+          <span className="inline-grid align-bottom overflow-hidden">
+            {/* Invisible sizers: all words in same cell → container = widest word */}
+            {rotatingWords.map((w) => (
+              <span
+                key={w}
+                aria-hidden
+                className="col-start-1 row-start-1 italic invisible select-none"
+              >
+                {w}
+              </span>
+            ))}
+            {/* Visible animated word - counter slide transition */}
+            <span className="col-start-1 row-start-1">
+              <AnimatePresence mode="wait">
+                <motion.span
+                  key={rotatingWords[wordIndex]}
+                  initial={{ y: "100%", opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  exit={{ y: "-100%", opacity: 0 }}
+                  transition={{
+                    duration: initialDone ? 0.45 : baseDuration,
+                    delay:
+                      initialDone
+                        ? 0
+                        : baseDelay + (line1Words.length + line2Words.length) * stagger,
+                    ease: [0.22, 1, 0.36, 1],
+                  }}
+                  className="block italic text-[#F1C40F]"
+                >
+                  {rotatingWords[wordIndex]}
+                </motion.span>
+              </AnimatePresence>
+            </span>
+          </span>
         </div>
       </div>
     </div>
