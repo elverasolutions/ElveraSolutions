@@ -1,6 +1,6 @@
 import { useRef } from "react";
 import { motion, useInView } from "motion/react";
-import { ShoppingBag, Landmark, HeartPulse, Building2, Rocket, Wallet } from "lucide-react";
+import { ShoppingBag, HeartPulse, Building2, Rocket, Wallet } from "lucide-react";
 import { ImageWithFallback } from "../components/figma/ImageWithFallback";
 import { CTABanner } from "../components/CTABanner";
 import { useSEO } from "../hooks/useSEO";
@@ -60,12 +60,6 @@ function IndustryDetails() {
             img: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800",
         },
         {
-            icon: Landmark,
-            title: "Government & Public Sector",
-            desc: "Delivering secure, accessible, and citizen-centric digital platforms that meet strict regulatory standards.",
-            img: "https://images.unsplash.com/photo-1497366216548-37526070297c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800",
-        },
-        {
             icon: HeartPulse,
             title: "Healthcare & Wellness",
             desc: "Building trust-driven digital experiences, from telemedicine apps to clinic marketing campaigns.",
@@ -87,7 +81,7 @@ function IndustryDetails() {
             icon: Wallet,
             title: "Finance & Fintech",
             desc: "Creating secure, intuitive interfaces that demystify complex financial products and drive user adoption.",
-            img: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800",
+            img: "https://images.unsplash.com/photo-1565514020179-026b92b84bb6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800",
         },
     ];
 
@@ -134,7 +128,7 @@ function IndustryDetails() {
 export function Industries() {
     useSEO(
         "Industries | Elvera Solutions",
-        "We deliver tailored digital solutions for key sectors including E-commerce, Government, Healthcare, Real Estate, Tech Startups, and Fintech."
+        "We deliver tailored digital solutions for key sectors including E-commerce, Healthcare, Real Estate, Tech Startups, and Fintech."
     );
 
     return (

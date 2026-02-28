@@ -49,7 +49,7 @@ const services = [
     icon: Share2,
     title: "Social Media Management",
     subtitle: "Engaging content and community management across all major social platforms.",
-    image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+    image: "https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
   },
   {
     id: "media",
@@ -57,7 +57,7 @@ const services = [
     icon: Camera,
     title: "Media Production",
     subtitle: "High-end photography and videography that captures your brand's essence.",
-    image: "https://images.unsplash.com/photo-1605814500985-7822a16d863f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+    image: "https://images.unsplash.com/photo-1605810230434-7631ac76ec81?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
   },
   {
     id: "ai",

@@ -1,6 +1,6 @@
 import { useRef } from "react";
 import { motion, useInView, useScroll, useTransform } from "motion/react";
-import { ShieldCheck, Target, Compass, Award, Building2 } from "lucide-react";
+import { ShieldCheck, Target, Compass, Award, Building2, User, Users, PenTool, TrendingUp } from "lucide-react";
 import { ImageWithFallback } from "../components/figma/ImageWithFallback";
 import { CTABanner } from "../components/CTABanner";
 import { useSEO } from "../hooks/useSEO";
@@ -211,10 +211,10 @@ function AboutTeam() {
     const isInView = useInView(ref, { once: true, margin: "-100px" });
 
     const team = [
-        { name: "Executive Team", role: "Leadership", img: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=600" },
-        { name: "Creative Directors", role: "Design & Media", img: "https://images.unsplash.com/photo-1550684848-fac1c5b4e853?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=600" },
-        { name: "Lead Engineers", role: "Technology", img: "https://images.unsplash.com/photo-1550684376-efcbd6e3f031?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=600" },
-        { name: "Growth Strategists", role: "Marketing", img: "https://images.unsplash.com/photo-1550859491-1ea544eb4bb1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=600" },
+        { name: "Executive Team", role: "Leadership", icon: User },
+        { name: "Creative Directors", role: "Design & Media", icon: PenTool },
+        { name: "Lead Engineers", role: "Technology", icon: Users },
+        { name: "Growth Strategists", role: "Marketing", icon: TrendingUp },
     ];
 
     return (
@@ -248,11 +248,10 @@ function AboutTeam() {
                             initial={{ opacity: 0, y: 30 }}
                             animate={isInView ? { opacity: 1, y: 0 } : {}}
                             transition={{ duration: 0.6, delay: 0.3 + i * 0.1 }}
-                            className="group cursor-pointer"
+                            className="group cursor-pointer text-center"
                         >
-                            <div className="relative aspect-[3/4] mb-6 rounded-2xl overflow-hidden pointer-events-none">
-                                <ImageWithFallback src={member.img} alt={member.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
-                                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                            <div className="relative aspect-square mb-6 rounded-2xl overflow-hidden bg-white border border-black/5 flex items-center justify-center shadow-lg group-hover:shadow-xl group-hover:border-[#9B59B6]/30 transition-all duration-500">
+                                <member.icon size={64} className="text-[#9B59B6] opacity-80 group-hover:scale-110 group-hover:opacity-100 transition-all duration-500 ease-[0.22,1,0.36,1]" strokeWidth={1.5} />
                             </div>
                             <h3 className="font-['Inter'] text-xl font-semibold text-[#0A0A0A] mb-1">{member.name}</h3>
                             <p className="font-['Inter'] text-[#9B59B6] font-medium text-sm tracking-wide">{member.role}</p>

@@ -53,7 +53,7 @@ function CaseStudies() {
     const isInView = useInView(ref, { once: true, margin: "-100px" });
     const [filter, setFilter] = useState("All");
 
-    const categories = ["All", "Tech", "E-commerce", "Government", "Real Estate"];
+    const categories = ["All", "Tech", "E-commerce", "Real Estate"];
 
     const projects = [
         {
@@ -69,13 +69,6 @@ function CaseStudies() {
             category: "Real Estate",
             result: "Award-Winning Corporate Identity",
             image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
-        },
-        {
-            title: "Government Portal Redesign",
-            industry: "Public Sector",
-            category: "Government",
-            result: "Streamlined Citizen Services",
-            image: "https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
         },
         {
             title: "Launch Campaign",
