@@ -1,6 +1,6 @@
 import { useState, useRef } from "react";
 import { motion, useInView } from "motion/react";
-import { MapPin, Linkedin, Instagram, Twitter, ArrowRight } from "lucide-react";
+import { MapPin, Mail, Phone, Linkedin, Instagram, Twitter, ArrowRight } from "lucide-react";
 import { ImageWithFallback } from "../components/figma/ImageWithFallback";
 import { useSEO } from "../hooks/useSEO";
 
@@ -87,6 +87,28 @@ function ContactSection() {
                                     <p className="font-['Inter'] text-black/60">Sharjah Media City (Shams), UAE</p>
                                 </div>
                             </div>
+                            <div className="flex items-start gap-4">
+                                <div className="w-12 h-12 rounded-full bg-[#9B59B6]/10 flex items-center justify-center shrink-0">
+                                    <Mail size={22} className="text-[#9B59B6]" />
+                                </div>
+                                <div>
+                                    <h4 className="font-['Inter'] text-black/90 font-semibold mb-1">Email</h4>
+                                    <a href="mailto:contact@elverasolutions.com" className="font-['Inter'] text-black/60 hover:text-[#9B59B6] hover:underline transition-colors">
+                                        contact@elverasolutions.com
+                                    </a>
+                                </div>
+                            </div>
+                            <div className="flex items-start gap-4">
+                                <div className="w-12 h-12 rounded-full bg-[#9B59B6]/10 flex items-center justify-center shrink-0">
+                                    <Phone size={22} className="text-[#9B59B6]" />
+                                </div>
+                                <div>
+                                    <h4 className="font-['Inter'] text-black/90 font-semibold mb-1">Phone</h4>
+                                    <a href="tel:+971507751293" className="font-['Inter'] text-black/60 hover:text-[#9B59B6] hover:underline transition-colors">
+                                        +971 50 775 1293
+                                    </a>
+                                </div>
+                            </div>
 
                         </div>
 
@@ -113,100 +135,111 @@ function ContactSection() {
                         animate={isInView ? { opacity: 1, x: 0 } : {}}
                         transition={{ duration: 0.8, delay: 0.2 }}
                     >
-                        <div className="bg-white p-8 lg:p-12 rounded-[2rem] shadow-2xl shadow-black/[0.04] border border-black/5">
-                            {formState === "success" ? (
-                                <motion.div
-                                    initial={{ opacity: 0, scale: 0.9 }}
-                                    animate={{ opacity: 1, scale: 1 }}
-                                    className="text-center py-12"
-                                >
-                                    <div className="w-20 h-20 rounded-full bg-green-100 flex items-center justify-center mx-auto mb-6">
-                                        <svg className="w-10 h-10 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg>
-                                    </div>
-                                    <h3 className="font-['Playfair_Display'] text-3xl mb-4 text-[#0A0A0A]">Message Sent!</h3>
-                                    <p className="text-black/60 font-['Inter']">Thank you for reaching out. We'll be in touch with you shortly.</p>
-                                    <button
-                                        onClick={() => setFormState("idle")}
-                                        className="mt-8 px-6 py-2 rounded-full border border-black/10 hover:border-[#9B59B6] font-['Inter'] text-sm"
+                        <div
+                            className="p-8 lg:p-12 rounded-[2rem] shadow-2xl relative overflow-hidden"
+                            style={{ background: "linear-gradient(160deg, #1a0e28 0%, #0f0817 40%, #0A0A0A 100%)" }}
+                        >
+                            {/* Decorative glows */}
+                            <div className="absolute -top-20 -right-20 w-48 h-48 bg-[#9B59B6]/15 rounded-full blur-[80px] pointer-events-none" />
+                            <div className="absolute -bottom-16 -left-16 w-40 h-40 bg-[#F1C40F]/8 rounded-full blur-[70px] pointer-events-none" />
+
+                            <div className="relative z-10">
+                                {formState === "success" ? (
+                                    <motion.div
+                                        initial={{ opacity: 0, scale: 0.9 }}
+                                        animate={{ opacity: 1, scale: 1 }}
+                                        className="text-center py-12"
                                     >
-                                        Send Another Inquiry
-                                    </button>
-                                </motion.div>
-                            ) : (
-                                <form onSubmit={handleSubmit} className="space-y-6">
-                                    <div>
-                                        <label htmlFor="name" className="block font-['Inter'] text-sm font-medium text-black/70 mb-2">Name</label>
-                                        <input
-                                            type="text"
-                                            id="name"
-                                            required
-                                            className="w-full bg-[#FAFAFA] border border-black/10 rounded-xl px-5 py-4 focus:outline-none focus:ring-2 focus:ring-[#9B59B6]/50 focus:border-[#9B59B6] transition-all font-['Inter'] text-black/90"
-                                            placeholder="Your full name"
-                                        />
-                                    </div>
-                                    <div className="grid sm:grid-cols-2 gap-6">
-                                        <div>
-                                            <label htmlFor="email" className="block font-['Inter'] text-sm font-medium text-black/70 mb-2">Email</label>
-                                            <input
-                                                type="email"
-                                                id="email"
-                                                required
-                                                className="w-full bg-[#FAFAFA] border border-black/10 rounded-xl px-5 py-4 focus:outline-none focus:ring-2 focus:ring-[#9B59B6]/50 focus:border-[#9B59B6] transition-all font-['Inter'] text-black/90"
-                                                placeholder="you@company.com"
-                                            />
+                                        <div className="w-20 h-20 rounded-full bg-[#9B59B6]/15 flex items-center justify-center mx-auto mb-6">
+                                            <svg className="w-10 h-10 text-[#F1C40F]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg>
                                         </div>
+                                        <h3 className="font-['Playfair_Display'] text-3xl mb-4 text-white">Message Sent!</h3>
+                                        <p className="text-white/60 font-['Inter']">Thank you for reaching out. We'll be in touch with you shortly.</p>
+                                        <button
+                                            onClick={() => setFormState("idle")}
+                                            className="mt-8 px-6 py-2 rounded-full border border-white/10 text-white/80 hover:border-[#9B59B6] hover:text-[#9B59B6] hover:bg-[#9B59B6]/10 font-['Inter'] text-sm transition-colors duration-300"
+                                        >
+                                            Send Another Inquiry
+                                        </button>
+                                    </motion.div>
+                                ) : (
+                                    <form onSubmit={handleSubmit} className="space-y-6">
                                         <div>
-                                            <label htmlFor="company" className="block font-['Inter'] text-sm font-medium text-black/70 mb-2">Company Name</label>
+                                            <label htmlFor="name" className="block font-['Inter'] text-sm font-medium text-white/70 mb-2">Name</label>
                                             <input
                                                 type="text"
-                                                id="company"
-                                                className="w-full bg-[#FAFAFA] border border-black/10 rounded-xl px-5 py-4 focus:outline-none focus:ring-2 focus:ring-[#9B59B6]/50 focus:border-[#9B59B6] transition-all font-['Inter'] text-black/90"
-                                                placeholder="Your company"
+                                                id="name"
+                                                required
+                                                className="w-full bg-[#150A1E]/60 border border-white/10 rounded-xl px-5 py-4 focus:outline-none focus:ring-1 focus:ring-[#9B59B6]/30 focus:border-[#9B59B6]/60 transition-all font-['Inter'] text-white placeholder-white/25"
+                                                placeholder="Your full name"
                                             />
                                         </div>
-                                    </div>
-                                    <div>
-                                        <label htmlFor="service" className="block font-['Inter'] text-sm font-medium text-black/70 mb-2">Service Required</label>
-                                        <select
-                                            id="service"
-                                            required
-                                            className="w-full bg-[#FAFAFA] border border-black/10 rounded-xl px-5 py-4 focus:outline-none focus:ring-2 focus:ring-[#9B59B6]/50 focus:border-[#9B59B6] transition-all font-['Inter'] text-black/90 appearance-none"
+                                        <div className="grid sm:grid-cols-2 gap-6">
+                                            <div>
+                                                <label htmlFor="email" className="block font-['Inter'] text-sm font-medium text-white/70 mb-2">Email</label>
+                                                <input
+                                                    type="email"
+                                                    id="email"
+                                                    required
+                                                    className="w-full bg-[#150A1E]/60 border border-white/10 rounded-xl px-5 py-4 focus:outline-none focus:ring-1 focus:ring-[#9B59B6]/30 focus:border-[#9B59B6]/60 transition-all font-['Inter'] text-white placeholder-white/25"
+                                                    placeholder="you@company.com"
+                                                />
+                                            </div>
+                                            <div>
+                                                <label htmlFor="company" className="block font-['Inter'] text-sm font-medium text-white/70 mb-2">Company Name</label>
+                                                <input
+                                                    type="text"
+                                                    id="company"
+                                                    className="w-full bg-[#150A1E]/60 border border-white/10 rounded-xl px-5 py-4 focus:outline-none focus:ring-1 focus:ring-[#9B59B6]/30 focus:border-[#9B59B6]/60 transition-all font-['Inter'] text-white placeholder-white/25"
+                                                    placeholder="Your company"
+                                                />
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <label htmlFor="service" className="block font-['Inter'] text-sm font-medium text-white/70 mb-2">Service Required</label>
+                                            <select
+                                                id="service"
+                                                required
+                                                defaultValue=""
+                                                className="w-full bg-[#150A1E]/60 border border-white/10 rounded-xl px-5 py-4 focus:outline-none focus:ring-1 focus:ring-[#9B59B6]/30 focus:border-[#9B59B6]/60 transition-all font-['Inter'] text-white placeholder-white/25 appearance-none"
+                                            >
+                                                <option value="" disabled className="text-black/50">Select a primary service</option>
+                                                <option value="branding" className="text-black/90">Branding Services</option>
+                                                <option value="social-media" className="text-black/90">Social Media Management</option>
+                                                <option value="marketing" className="text-black/90">Marketing & Advertisement</option>
+                                                <option value="media" className="text-black/90">Media Services</option>
+                                                <option value="full-service" className="text-black/90">Full service</option>
+                                                <option value="it" className="text-black/90">IT & Integration</option>
+                                                <option value="other" className="text-black/90">Other</option>
+                                            </select>
+                                        </div>
+                                        <div>
+                                            <label htmlFor="details" className="block font-['Inter'] text-sm font-medium text-white/70 mb-2">Project Details</label>
+                                            <textarea
+                                                id="details"
+                                                required
+                                                rows={4}
+                                                className="w-full bg-[#150A1E]/60 border border-white/10 rounded-xl px-5 py-4 focus:outline-none focus:ring-1 focus:ring-[#9B59B6]/30 focus:border-[#9B59B6]/60 transition-all font-['Inter'] text-white placeholder-white/25 resize-none"
+                                                placeholder="Tell us a bit about your project and goals..."
+                                            />
+                                        </div>
+                                        <button
+                                            type="submit"
+                                            disabled={formState === "submitting"}
+                                            className="w-full group font-['Inter'] relative flex items-center justify-center gap-3 px-8 py-5 rounded-xl bg-[#0A0A0A] text-white overflow-hidden cursor-pointer disabled:opacity-70 disabled:cursor-not-allowed"
+                                            style={{ fontSize: "0.95rem", fontWeight: 500, letterSpacing: "0.05em" }}
                                         >
-                                            <option value="" disabled selected>Select a primary service</option>
-                                            <option value="software">Software Engineering</option>
-                                            <option value="web-app">Web & App Development</option>
-                                            <option value="marketing">Digital Marketing & SEO</option>
-                                            <option value="media">Media Production</option>
-                                            <option value="automation">Automation & AI Solutions</option>
-                                            <option value="other">Other / Not Sure</option>
-                                        </select>
-                                    </div>
-                                    <div>
-                                        <label htmlFor="details" className="block font-['Inter'] text-sm font-medium text-black/70 mb-2">Project Details</label>
-                                        <textarea
-                                            id="details"
-                                            required
-                                            rows={4}
-                                            className="w-full bg-[#FAFAFA] border border-black/10 rounded-xl px-5 py-4 focus:outline-none focus:ring-2 focus:ring-[#9B59B6]/50 focus:border-[#9B59B6] transition-all font-['Inter'] text-black/90 resize-none"
-                                            placeholder="Tell us a bit about your project and goals..."
-                                        />
-                                    </div>
-                                    <button
-                                        type="submit"
-                                        disabled={formState === "submitting"}
-                                        className="w-full group font-['Inter'] relative flex items-center justify-center gap-3 px-8 py-5 rounded-xl bg-[#0A0A0A] text-white overflow-hidden cursor-pointer disabled:opacity-70 disabled:cursor-not-allowed"
-                                        style={{ fontSize: "0.95rem", fontWeight: 500, letterSpacing: "0.05em" }}
-                                    >
-                                        <span className="absolute inset-0 w-full h-full bg-[#9B59B6] group-hover:bg-[#8E44AD] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                                        <span className="relative z-10 transition-colors duration-300">
-                                            {formState === "submitting" ? "Sending..." : "Send Inquiry"}
-                                        </span>
-                                        {formState !== "submitting" && (
-                                            <ArrowRight size={18} className="relative z-10 group-hover:translate-x-1.5 transition-all duration-300" />
-                                        )}
-                                    </button>
-                                </form>
-                            )}
+                                            <span className="absolute inset-0 w-full h-full bg-[#9B59B6] group-hover:bg-[#8E44AD] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                                            <span className="relative z-10 transition-colors duration-300">
+                                                {formState === "submitting" ? "Sending..." : "Send Inquiry"}
+                                            </span>
+                                            {formState !== "submitting" && (
+                                                <ArrowRight size={18} className="relative z-10 group-hover:translate-x-1.5 transition-all duration-300" />
+                                            )}
+                                        </button>
+                                    </form>
+                                )}
+                            </div>
                         </div>
                     </motion.div>
                 </div>
