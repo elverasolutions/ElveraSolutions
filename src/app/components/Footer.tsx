@@ -396,17 +396,7 @@ export function Footer() {
                     +971 50 775 1293
                   </a>
                 </li>
-                <li>
-                  <a
-                    href="https://www.elverasolutions.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2.5 font-['Inter'] text-white/40 hover:text-[#F1C40F] transition-colors duration-300"
-                    style={{ fontSize: "0.85rem", fontWeight: 300 }}
-                  >
-                    www.elverasolutions.com
-                  </a>
-                </li>
+
               </ul>
 
               {/* Social Icons */}

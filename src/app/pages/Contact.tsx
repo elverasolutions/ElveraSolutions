@@ -1,8 +1,27 @@
 import { useState, useRef } from "react";
-import { motion, useInView } from "motion/react";
-import { MapPin, Mail, Phone, Linkedin, Instagram, Twitter, ArrowRight } from "lucide-react";
+import { motion, useInView, AnimatePresence } from "motion/react";
+import { MapPin, Mail, Phone, Linkedin, Instagram, ArrowRight, MessageCircle, ChevronDown, CheckCircle } from "lucide-react";
 import { ImageWithFallback } from "../components/figma/ImageWithFallback";
 import { useSEO } from "../hooks/useSEO";
+
+const helpOptions = [
+    "Branding Services",
+    "Social Media Management",
+    "Marketing & Advertisement",
+    "Media Services",
+    "Full service",
+    "IT & Integration",
+    "Other",
+];
+
+const budgetOptions = [
+    "$1,000 - $3,000",
+    "$3,000 - $5,000",
+    "$5,000 - $10,000",
+    "$10,000 - $25,000",
+    "$25,000+",
+    "Not sure yet",
+];
 
 function ContactHero() {
     const ref = useRef(null);
@@ -51,6 +70,15 @@ function ContactSection() {
     const ref = useRef(null);
     const isInView = useInView(ref, { once: true, margin: "-100px" });
 
+    const [name, setName] = useState("");
+    const [email, setEmail] = useState("");
+    const [company, setCompany] = useState("");
+    const [phone, setPhone] = useState("");
+    const [budget, setBudget] = useState("");
+    const [helpType, setHelpType] = useState("");
+    const [details, setDetails] = useState("");
+    const [dropdownOpen, setDropdownOpen] = useState(false);
+    const [budgetDropdownOpen, setBudgetDropdownOpen] = useState(false);
     const [formState, setFormState] = useState("idle");
 
     const handleSubmit = (e: React.FormEvent) => {
@@ -58,6 +86,8 @@ function ContactSection() {
         setFormState("submitting");
         setTimeout(() => setFormState("success"), 1500);
     };
+
+    const inputBase = "w-full bg-[#150A1E]/60 border border-white/10 rounded-xl px-5 py-4 focus:outline-none focus:ring-1 focus:ring-[#9B59B6]/30 focus:border-[#9B59B6]/60 transition-all font-['Inter'] text-white placeholder-white/25 hover:border-white/20";
 
     return (
         <section ref={ref} className="py-20 lg:py-32 bg-[#FAFAFA] relative">
@@ -116,14 +146,14 @@ function ContactSection() {
                         <div>
                             <h4 className="font-['Inter'] text-black/90 font-semibold mb-4">Connect With Us</h4>
                             <div className="flex gap-4">
-                                <a href="#" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full bg-white border border-black/5 flex items-center justify-center text-black/50 hover:text-[#9B59B6] hover:border-[#9B59B6]/30 hover:shadow-lg transition-all duration-300">
-                                    <Linkedin size={20} />
+                                <a href="https://wa.me/971507751293" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full bg-white border border-black/5 flex items-center justify-center text-black/50 hover:text-[#25D366] hover:border-[#25D366]/30 hover:shadow-lg transition-all duration-300">
+                                    <MessageCircle size={20} />
                                 </a>
-                                <a href="#" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full bg-white border border-black/5 flex items-center justify-center text-black/50 hover:text-[#9B59B6] hover:border-[#9B59B6]/30 hover:shadow-lg transition-all duration-300">
+                                <a href="https://www.instagram.com/elverasolutionsllc/" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full bg-white border border-black/5 flex items-center justify-center text-black/50 hover:text-[#E1306C] hover:border-[#E1306C]/30 hover:shadow-lg transition-all duration-300">
                                     <Instagram size={20} />
                                 </a>
-                                <a href="#" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full bg-white border border-black/5 flex items-center justify-center text-black/50 hover:text-[#9B59B6] hover:border-[#9B59B6]/30 hover:shadow-lg transition-all duration-300">
-                                    <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z" /></svg>
+                                <a href="https://www.linkedin.com/company/111757888/admin/dashboard/" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full bg-white border border-black/5 flex items-center justify-center text-black/50 hover:text-[#0A66C2] hover:border-[#0A66C2]/30 hover:shadow-lg transition-all duration-300">
+                                    <Linkedin size={20} />
                                 </a>
                             </div>
                         </div>
@@ -163,104 +193,165 @@ function ContactSection() {
                                         </button>
                                     </motion.div>
                                 ) : (
-                                    <form onSubmit={handleSubmit} className="space-y-6">
-                                        <div>
-                                            <label htmlFor="name" className="block font-['Inter'] text-sm font-medium text-white/70 mb-2">Name</label>
+                                    <form onSubmit={handleSubmit} className="space-y-4">
+                                        <div className="grid sm:grid-cols-2 gap-4">
                                             <input
                                                 type="text"
-                                                id="name"
                                                 required
-                                                className="w-full bg-[#150A1E]/60 border border-white/10 rounded-xl px-5 py-4 focus:outline-none focus:ring-1 focus:ring-[#9B59B6]/30 focus:border-[#9B59B6]/60 transition-all font-['Inter'] text-white placeholder-white/25"
-                                                placeholder="Your full name"
+                                                value={name}
+                                                onChange={(e) => setName(e.target.value)}
+                                                className={inputBase}
+                                                style={{ fontSize: "0.9rem", fontWeight: 300 }}
+                                                placeholder="Your Name *"
+                                            />
+                                            <input
+                                                type="text"
+                                                value={company}
+                                                onChange={(e) => setCompany(e.target.value)}
+                                                className={inputBase}
+                                                style={{ fontSize: "0.9rem", fontWeight: 300 }}
+                                                placeholder="Company Name"
                                             />
                                         </div>
-                                        <div className="grid sm:grid-cols-2 gap-6">
-                                            <div>
-                                                <label htmlFor="email" className="block font-['Inter'] text-sm font-medium text-white/70 mb-2">Email</label>
-                                                <input
-                                                    type="email"
-                                                    id="email"
-                                                    required
-                                                    className="w-full bg-[#150A1E]/60 border border-white/10 rounded-xl px-5 py-4 focus:outline-none focus:ring-1 focus:ring-[#9B59B6]/30 focus:border-[#9B59B6]/60 transition-all font-['Inter'] text-white placeholder-white/25"
-                                                    placeholder="you@company.com"
-                                                />
-                                            </div>
-                                            <div>
-                                                <label htmlFor="company" className="block font-['Inter'] text-sm font-medium text-white/70 mb-2">Company Name</label>
-                                                <input
-                                                    type="text"
-                                                    id="company"
-                                                    className="w-full bg-[#150A1E]/60 border border-white/10 rounded-xl px-5 py-4 focus:outline-none focus:ring-1 focus:ring-[#9B59B6]/30 focus:border-[#9B59B6]/60 transition-all font-['Inter'] text-white placeholder-white/25"
-                                                    placeholder="Your company"
-                                                />
-                                            </div>
-                                        </div>
-                                        <div className="grid sm:grid-cols-2 gap-6">
-                                            <div>
-                                                <label htmlFor="phone" className="block font-['Inter'] text-sm font-medium text-white/70 mb-2">Phone</label>
-                                                <input
-                                                    type="tel"
-                                                    id="phone"
-                                                    className="w-full bg-[#150A1E]/60 border border-white/10 rounded-xl px-5 py-4 focus:outline-none focus:ring-1 focus:ring-[#9B59B6]/30 focus:border-[#9B59B6]/60 transition-all font-['Inter'] text-white placeholder-white/25"
-                                                    placeholder="Phone number"
-                                                />
-                                            </div>
-                                            <div>
-                                                <label htmlFor="budget" className="block font-['Inter'] text-sm font-medium text-white/70 mb-2">Budget Range</label>
-                                                <select
-                                                    id="budget"
-                                                    defaultValue=""
-                                                    className="w-full bg-[#150A1E]/60 border border-white/10 rounded-xl px-5 py-4 focus:outline-none focus:ring-1 focus:ring-[#9B59B6]/30 focus:border-[#9B59B6]/60 transition-all font-['Inter'] text-white placeholder-white/25 appearance-none"
-                                                >
-                                                    <option value="" disabled className="text-black/50">Not sure yet</option>
-                                                    <option value="1k-3k" className="text-black/90">$1,000 - $3,000</option>
-                                                    <option value="3k-5k" className="text-black/90">$3,000 - $5,000</option>
-                                                    <option value="5k-10k" className="text-black/90">$5,000 - $10,000</option>
-                                                    <option value="10k-25k" className="text-black/90">$10,000 - $25,000</option>
-                                                    <option value="25k+" className="text-black/90">$25,000+</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div>
-                                            <label htmlFor="service" className="block font-['Inter'] text-sm font-medium text-white/70 mb-2">How we can help you?</label>
-                                            <select
-                                                id="service"
+                                        <div className="grid sm:grid-cols-2 gap-4">
+                                            <input
+                                                type="email"
                                                 required
-                                                defaultValue=""
-                                                className="w-full bg-[#150A1E]/60 border border-white/10 rounded-xl px-5 py-4 focus:outline-none focus:ring-1 focus:ring-[#9B59B6]/30 focus:border-[#9B59B6]/60 transition-all font-['Inter'] text-white placeholder-white/25 appearance-none"
-                                            >
-                                                <option value="" disabled className="text-black/50">Select a primary service</option>
-                                                <option value="branding" className="text-black/90">Branding Services</option>
-                                                <option value="social-media" className="text-black/90">Social Media Management</option>
-                                                <option value="marketing" className="text-black/90">Marketing & Advertisement</option>
-                                                <option value="media" className="text-black/90">Media Services</option>
-                                                <option value="full-service" className="text-black/90">Full service</option>
-                                                <option value="it" className="text-black/90">IT & Integration</option>
-                                                <option value="other" className="text-black/90">Other</option>
-                                            </select>
+                                                value={email}
+                                                onChange={(e) => setEmail(e.target.value)}
+                                                className={inputBase}
+                                                style={{ fontSize: "0.9rem", fontWeight: 300 }}
+                                                placeholder="Email Address *"
+                                            />
+                                            <input
+                                                type="tel"
+                                                value={phone}
+                                                onChange={(e) => setPhone(e.target.value)}
+                                                className={inputBase}
+                                                style={{ fontSize: "0.9rem", fontWeight: 300 }}
+                                                placeholder="Phone Number"
+                                            />
+                                        </div>
+                                        <div className="grid sm:grid-cols-2 gap-4">
+                                            <div className="relative">
+                                                <button
+                                                    type="button"
+                                                    onClick={() => {
+                                                        setBudgetDropdownOpen((p) => !p);
+                                                        setDropdownOpen(false);
+                                                    }}
+                                                    className={`${inputBase} flex items-center justify-between text-left cursor-pointer h-full`}
+                                                    style={{ fontSize: "0.9rem", fontWeight: 300 }}
+                                                >
+                                                    <span className={budget ? "text-white" : "text-white/25"}>
+                                                        {budget || "Budget Range"}
+                                                    </span>
+                                                    <ChevronDown size={18} className={`text-white/30 transition-transform duration-300 ${budgetDropdownOpen ? "rotate-180" : ""}`} />
+                                                </button>
+                                                <AnimatePresence>
+                                                    {budgetDropdownOpen && (
+                                                        <motion.ul
+                                                            initial={{ opacity: 0, y: -8, scaleY: 0.95 }}
+                                                            animate={{ opacity: 1, y: 0, scaleY: 1 }}
+                                                            exit={{ opacity: 0, y: -8, scaleY: 0.95 }}
+                                                            transition={{ duration: 0.2 }}
+                                                            className="absolute left-0 right-0 top-full mt-2 bg-[#1a0e28] border border-white/10 rounded-xl overflow-hidden z-20 origin-top"
+                                                            style={{ boxShadow: "0 20px 50px rgba(0,0,0,0.5), 0 0 30px rgba(155,89,182,0.1)" }}
+                                                        >
+                                                            {budgetOptions.map((option) => (
+                                                                <li key={option}>
+                                                                    <button
+                                                                        type="button"
+                                                                        onClick={() => { setBudget(option); setBudgetDropdownOpen(false); }}
+                                                                        className={`w-full text-left px-5 py-3.5 font-['Inter'] transition-all duration-200 cursor-pointer ${budget === option ? "bg-[#9B59B6]/20 text-[#F1C40F]" : "text-white/60 hover:bg-white/5 hover:text-white"}`}
+                                                                        style={{ fontSize: "0.9rem", fontWeight: 300 }}
+                                                                    >
+                                                                        {option}
+                                                                    </button>
+                                                                </li>
+                                                            ))}
+                                                        </motion.ul>
+                                                    )}
+                                                </AnimatePresence>
+                                            </div>
+                                            <div className="relative">
+                                                <button
+                                                    type="button"
+                                                    onClick={() => {
+                                                        setDropdownOpen((p) => !p);
+                                                        setBudgetDropdownOpen(false);
+                                                    }}
+                                                    className={`${inputBase} flex items-center justify-between text-left cursor-pointer h-full`}
+                                                    style={{ fontSize: "0.9rem", fontWeight: 300 }}
+                                                >
+                                                    <span className={helpType ? "text-white" : "text-white/25"}>
+                                                        {helpType || "How can we help you? *"}
+                                                    </span>
+                                                    <ChevronDown size={18} className={`text-white/30 transition-transform duration-300 ${dropdownOpen ? "rotate-180" : ""}`} />
+                                                </button>
+                                                <AnimatePresence>
+                                                    {dropdownOpen && (
+                                                        <motion.ul
+                                                            initial={{ opacity: 0, y: -8, scaleY: 0.95 }}
+                                                            animate={{ opacity: 1, y: 0, scaleY: 1 }}
+                                                            exit={{ opacity: 0, y: -8, scaleY: 0.95 }}
+                                                            transition={{ duration: 0.2 }}
+                                                            className="absolute left-0 right-0 top-full mt-2 bg-[#1a0e28] border border-white/10 rounded-xl overflow-hidden z-20 origin-top"
+                                                            style={{ boxShadow: "0 20px 50px rgba(0,0,0,0.5), 0 0 30px rgba(155,89,182,0.1)" }}
+                                                        >
+                                                            {helpOptions.map((option) => (
+                                                                <li key={option}>
+                                                                    <button
+                                                                        type="button"
+                                                                        onClick={() => { setHelpType(option); setDropdownOpen(false); }}
+                                                                        className={`w-full text-left px-5 py-3.5 font-['Inter'] transition-all duration-200 cursor-pointer ${helpType === option ? "bg-[#9B59B6]/20 text-[#F1C40F]" : "text-white/60 hover:bg-white/5 hover:text-white"}`}
+                                                                        style={{ fontSize: "0.9rem", fontWeight: 300 }}
+                                                                    >
+                                                                        {option}
+                                                                    </button>
+                                                                </li>
+                                                            ))}
+                                                        </motion.ul>
+                                                    )}
+                                                </AnimatePresence>
+                                            </div>
                                         </div>
                                         <div>
-                                            <label htmlFor="details" className="block font-['Inter'] text-sm font-medium text-white/70 mb-2">Project Details</label>
                                             <textarea
-                                                id="details"
                                                 required
                                                 rows={4}
-                                                className="w-full bg-[#150A1E]/60 border border-white/10 rounded-xl px-5 py-4 focus:outline-none focus:ring-1 focus:ring-[#9B59B6]/30 focus:border-[#9B59B6]/60 transition-all font-['Inter'] text-white placeholder-white/25 resize-none"
+                                                value={details}
+                                                onChange={(e) => setDetails(e.target.value)}
+                                                className={`${inputBase} resize-none`}
+                                                style={{ fontSize: "0.9rem", fontWeight: 300 }}
                                                 placeholder="Tell us a bit about your project and goals..."
                                             />
                                         </div>
+
                                         <button
                                             type="submit"
-                                            disabled={formState === "submitting"}
-                                            className="w-full group font-['Inter'] relative flex items-center justify-center gap-3 px-8 py-5 rounded-xl bg-[#0A0A0A] text-white overflow-hidden cursor-pointer disabled:opacity-70 disabled:cursor-not-allowed"
-                                            style={{ fontSize: "0.95rem", fontWeight: 500, letterSpacing: "0.05em" }}
+                                            disabled={!name || !email || !helpType || !details || formState === "submitting"}
+                                            className="group relative w-full inline-flex items-center justify-center gap-3 px-8 py-5 rounded-full text-white overflow-hidden disabled:opacity-40 disabled:cursor-not-allowed cursor-pointer transition-opacity duration-300 mt-2"
                                         >
-                                            <span className="absolute inset-0 w-full h-full bg-[#9B59B6] group-hover:bg-[#8E44AD] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                                            <span className="relative z-10 transition-colors duration-300">
-                                                {formState === "submitting" ? "Sending..." : "Submit Enquiry"}
+                                            <span
+                                                className="absolute inset-0 rounded-full"
+                                                style={{
+                                                    background: "linear-gradient(135deg, #9B59B6, #7D3C98, #9B59B6, #AF7AC5, #9B59B6)",
+                                                    backgroundSize: "400% 400%",
+                                                    animation: "gradientShift 4s ease infinite",
+                                                }}
+                                            />
+                                            <span className="absolute inset-0 rounded-full overflow-hidden">
+                                                <span
+                                                    className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000"
+                                                    style={{ background: "linear-gradient(90deg, transparent, rgba(241,196,15,0.25), transparent)" }}
+                                                />
+                                            </span>
+                                            <span className="relative z-10 font-['Inter']" style={{ fontSize: "0.95rem", fontWeight: 500, letterSpacing: "0.05em" }}>
+                                                {formState === "submitting" ? "SENDING..." : "SUBMIT ENQUIRY"}
                                             </span>
                                             {formState !== "submitting" && (
-                                                <ArrowRight size={18} className="relative z-10 group-hover:translate-x-1.5 transition-all duration-300" />
+                                                <ArrowRight size={18} className="relative z-10 group-hover:translate-x-1.5 transition-transform duration-300" />
                                             )}
                                         </button>
                                     </form>
