@@ -49,7 +49,7 @@ const services = [
     icon: Share2,
     title: "Social Media Management",
     subtitle: "Engaging content and community management across all major social platforms.",
-    image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+    image: "https://images.unsplash.com/photo-1533750349088-cd871a92f312?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
   },
   {
     id: "media",
