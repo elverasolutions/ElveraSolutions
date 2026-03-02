@@ -195,8 +195,34 @@ function ContactSection() {
                                                 />
                                             </div>
                                         </div>
+                                        <div className="grid sm:grid-cols-2 gap-6">
+                                            <div>
+                                                <label htmlFor="phone" className="block font-['Inter'] text-sm font-medium text-white/70 mb-2">Phone</label>
+                                                <input
+                                                    type="tel"
+                                                    id="phone"
+                                                    className="w-full bg-[#150A1E]/60 border border-white/10 rounded-xl px-5 py-4 focus:outline-none focus:ring-1 focus:ring-[#9B59B6]/30 focus:border-[#9B59B6]/60 transition-all font-['Inter'] text-white placeholder-white/25"
+                                                    placeholder="Phone number"
+                                                />
+                                            </div>
+                                            <div>
+                                                <label htmlFor="budget" className="block font-['Inter'] text-sm font-medium text-white/70 mb-2">Budget Range</label>
+                                                <select
+                                                    id="budget"
+                                                    defaultValue=""
+                                                    className="w-full bg-[#150A1E]/60 border border-white/10 rounded-xl px-5 py-4 focus:outline-none focus:ring-1 focus:ring-[#9B59B6]/30 focus:border-[#9B59B6]/60 transition-all font-['Inter'] text-white placeholder-white/25 appearance-none"
+                                                >
+                                                    <option value="" disabled className="text-black/50">Not sure yet</option>
+                                                    <option value="1k-3k" className="text-black/90">$1,000 - $3,000</option>
+                                                    <option value="3k-5k" className="text-black/90">$3,000 - $5,000</option>
+                                                    <option value="5k-10k" className="text-black/90">$5,000 - $10,000</option>
+                                                    <option value="10k-25k" className="text-black/90">$10,000 - $25,000</option>
+                                                    <option value="25k+" className="text-black/90">$25,000+</option>
+                                                </select>
+                                            </div>
+                                        </div>
                                         <div>
-                                            <label htmlFor="service" className="block font-['Inter'] text-sm font-medium text-white/70 mb-2">Service Required</label>
+                                            <label htmlFor="service" className="block font-['Inter'] text-sm font-medium text-white/70 mb-2">How we can help you?</label>
                                             <select
                                                 id="service"
                                                 required
@@ -231,7 +257,7 @@ function ContactSection() {
                                         >
                                             <span className="absolute inset-0 w-full h-full bg-[#9B59B6] group-hover:bg-[#8E44AD] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                                             <span className="relative z-10 transition-colors duration-300">
-                                                {formState === "submitting" ? "Sending..." : "Send Inquiry"}
+                                                {formState === "submitting" ? "Sending..." : "Submit Enquiry"}
                                             </span>
                                             {formState !== "submitting" && (
                                                 <ArrowRight size={18} className="relative z-10 group-hover:translate-x-1.5 transition-all duration-300" />
