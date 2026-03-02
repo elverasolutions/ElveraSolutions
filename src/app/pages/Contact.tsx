@@ -5,13 +5,15 @@ import { ImageWithFallback } from "../components/figma/ImageWithFallback";
 import { useSEO } from "../hooks/useSEO";
 
 const helpOptions = [
-    "Branding Services",
+    "Software Development",
+    "Digital Marketing",
     "Social Media Management",
+    "Web Design & Development",
+    "Photography & Videography",
+    "AI & Automation",
+    "Branding Services",
     "Marketing & Advertisement",
-    "Media Services",
-    "Full service",
-    "IT & Integration",
-    "Other",
+    "Other"
 ];
 
 const budgetOptions = [

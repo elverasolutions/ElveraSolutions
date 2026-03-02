@@ -81,7 +81,7 @@ function IndustryDetails() {
             icon: Wallet,
             title: "Finance & Fintech",
             desc: "Creating secure, intuitive interfaces that demystify complex financial products and drive user adoption.",
-            img: "https://images.unsplash.com/photo-1565514020179-026b92b84bb6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800",
+            img: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800",
         },
     ];
 
