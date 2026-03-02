@@ -155,6 +155,9 @@ function ContactSection() {
                                 <a href="https://www.linkedin.com/company/111757888/admin/dashboard/" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full bg-white border border-black/5 flex items-center justify-center text-black/50 hover:text-[#0A66C2] hover:border-[#0A66C2]/30 hover:shadow-lg transition-all duration-300">
                                     <Linkedin size={20} />
                                 </a>
+                                <a href="https://x.com/Elvera_Solution" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full bg-white border border-black/5 flex items-center justify-center text-black/50 hover:text-[#1DA1F2] hover:border-[#1DA1F2]/30 hover:shadow-lg transition-all duration-300">
+                                    <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z" /></svg>
+                                </a>
                             </div>
                         </div>
                     </motion.div>
@@ -166,12 +169,14 @@ function ContactSection() {
                         transition={{ duration: 0.8, delay: 0.2 }}
                     >
                         <div
-                            className="p-8 lg:p-12 rounded-[2rem] shadow-2xl relative overflow-hidden"
+                            className="p-8 lg:p-12 rounded-[2rem] shadow-2xl relative"
                             style={{ background: "linear-gradient(160deg, #1a0e28 0%, #0f0817 40%, #0A0A0A 100%)" }}
                         >
-                            {/* Decorative glows */}
-                            <div className="absolute -top-20 -right-20 w-48 h-48 bg-[#9B59B6]/15 rounded-full blur-[80px] pointer-events-none" />
-                            <div className="absolute -bottom-16 -left-16 w-40 h-40 bg-[#F1C40F]/8 rounded-full blur-[70px] pointer-events-none" />
+                            {/* Decorative glows (clipped to prevent page scroll overflow but not form dropdown overflow) */}
+                            <div className="absolute inset-0 rounded-[2rem] overflow-hidden pointer-events-none">
+                                <div className="absolute -top-20 -right-20 w-48 h-48 bg-[#9B59B6]/15 rounded-full blur-[80px]" />
+                                <div className="absolute -bottom-16 -left-16 w-40 h-40 bg-[#F1C40F]/8 rounded-full blur-[70px]" />
+                            </div>
 
                             <div className="relative z-10">
                                 {formState === "success" ? (

@@ -49,7 +49,7 @@ const services = [
     icon: Share2,
     title: "Social Media Management",
     subtitle: "Engaging content and community management across all major social platforms.",
-    image: "https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+    image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
   },
   {
     id: "media",
@@ -65,7 +65,7 @@ const services = [
     icon: Cpu,
     title: "Automation & AI Solutions",
     subtitle: "Streamlining operations and integrating smart technology for future-ready businesses.",
-    image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+    image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
   }
 ];
 

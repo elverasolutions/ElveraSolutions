@@ -88,7 +88,7 @@ export function TermsOfServiceModal({ open, onClose }: TermsOfServiceModalProps)
                                     className="font-['Inter'] text-white/40 mt-1"
                                     style={{ fontSize: "0.85rem", fontWeight: 300 }}
                                 >
-                                    Effective Date: March 2026
+                                    Effective Date: Feb 2026
                                 </p>
                             </div>
 
@@ -341,9 +341,6 @@ export function TermsOfServiceModal({ open, onClose }: TermsOfServiceModalProps)
                                     <p>
                                         In the event of any dispute arising out of or in connection with these Terms and Conditions, the parties agree to first attempt to resolve the matter amicably through good-faith negotiation. If a resolution cannot be reached within 30 days, the dispute may be referred to the appropriate courts or arbitration body as determined by applicable law.
                                     </p>
-                                    <p>
-                                        <em>Note: Governing law and dispute resolution clauses to be finalised and confirmed by a qualified UAE legal professional before publication.</em>
-                                    </p>
                                 </FadeBlock>
 
                                 <FadeBlock>
@@ -376,9 +373,6 @@ export function TermsOfServiceModal({ open, onClose }: TermsOfServiceModalProps)
                                     <div className="pt-4 mt-8 border-t border-white/10 opacity-60">
                                         <p className="text-sm">End of Terms and Conditions</p>
                                         <p className="text-sm">Elvera Solutions LLC | License No: 2644692.01 | Sharjah Media City Free Zone, UAE</p>
-                                        <p className="text-xs italic mt-2">
-                                            Disclaimer: This document has been prepared as a general business Terms and Conditions template for Elvera Solutions LLC. It is strongly recommended that this document be reviewed and approved by a qualified UAE legal professional before it is published or used in any client-facing capacity.
-                                        </p>
                                     </div>
                                 </FadeBlock>
                             </div>

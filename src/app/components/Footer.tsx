@@ -340,6 +340,9 @@ export function Footer() {
                   "Social Media Management",
                   "Web Design & Development",
                   "Photography & Videography",
+                  "AI & Automation",
+                  "Branding Services",
+                  "Marketing & Advertisement"
                 ].map((item) => (
                   <li key={item}>
                     <Link
@@ -433,6 +436,17 @@ export function Footer() {
                   className="w-10 h-10 rounded-full bg-white/[0.06] border border-white/10 flex items-center justify-center hover:border-[#0A66C2]/50 hover:bg-[#0A66C2]/10 transition-all duration-300"
                 >
                   <Linkedin size={16} className="text-white/50" />
+                </motion.a>
+                <motion.a
+                  href="https://x.com/Elvera_Solution"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={footerInView ? { opacity: 1, y: 0 } : {}}
+                  transition={{ duration: 0.4, delay: dl(0.48) }}
+                  className="w-10 h-10 rounded-full bg-white/[0.06] border border-white/10 flex items-center justify-center hover:border-[#1DA1F2]/50 hover:bg-[#1DA1F2]/10 transition-all duration-300"
+                >
+                  <svg className="w-3.5 h-3.5 fill-white/50" viewBox="0 0 24 24"><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z" /></svg>
                 </motion.a>
               </div>
             </motion.div>
