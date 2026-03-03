@@ -274,12 +274,13 @@ export function Footer() {
               animate={footerInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: dur }}
             >
-              <h4
-                className="font-['Inter'] text-white mb-6 pb-1 border-b border-white/10 inline-block"
-                style={{ fontSize: "0.95rem", fontWeight: 500 }}
-              >
-                Elvera Solutions LLC
-              </h4>
+              <div className="mb-6 pb-4 border-b border-white/10 inline-block">
+                <img
+                  src="/logo.png"
+                  alt="Elvera Solutions"
+                  className="h-8 w-auto brightness-0 invert opacity-90"
+                />
+              </div>
               <p className="font-['Inter'] text-white/60 mb-4" style={{ fontSize: "0.85rem", fontWeight: 300, lineHeight: 1.6 }}>
                 Elevating Brands in the Digital Era
                 <br />

@@ -52,20 +52,11 @@ export function Navbar() {
             onClick={() => window.scrollTo(0, 0)}
             className="flex items-center gap-2"
           >
-            <span
-              className={`font-['Playfair_Display'] tracking-[0.2em] transition-colors duration-500 ${isScrolledStyle ? "text-[#0A0A0A]" : "text-white"
-                }`}
-              style={{ fontSize: "1.5rem", fontWeight: 600 }}
-            >
-              ELVERA
-            </span>
-            <span
-              className={`hidden sm:inline-block font-['Inter'] tracking-[0.15em] transition-colors duration-500 ${isScrolledStyle ? "text-[#9B59B6]" : "text-[#C39BD3]"
-                }`}
-              style={{ fontSize: "0.65rem", fontWeight: 300, letterSpacing: "0.25em" }}
-            >
-              SOLUTIONS
-            </span>
+            <img
+              src="/logo.png"
+              alt="Elvera Solutions"
+              className={`h-8 lg:h-10 w-auto transition-all duration-500 ${isScrolledStyle ? "brightness-0 invert-0" : "brightness-0 invert"}`}
+            />
           </Link>
 
           {/* Desktop Nav */}
