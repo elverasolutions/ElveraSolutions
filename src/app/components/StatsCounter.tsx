@@ -61,12 +61,6 @@ const stats = [
     label: "Brands Served",
     description: "From startups to enterprises",
   },
-  {
-    value: 12,
-    suffix: "+",
-    label: "Industry Awards",
-    description: "Recognition for excellence",
-  },
 ];
 
 export function StatsCounter() {
@@ -93,7 +87,7 @@ export function StatsCounter() {
       )}
 
       <div className="relative max-w-6xl mx-auto px-6 lg:px-8">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12 text-center md:text-left">
           {stats.map((stat, i) => (
             <motion.div
               key={stat.label}
