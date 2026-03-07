@@ -1,6 +1,7 @@
 import { useRef } from "react";
 import { motion, useInView } from "motion/react";
-import { Terminal, AppWindow, LineChart, MessageCircle, Camera, Cpu } from "lucide-react";
+import { Terminal, AppWindow, LineChart, MessageCircle, Camera, Cpu, ArrowRight } from "lucide-react";
+import { Link } from "react-router";
 import { ImageWithFallback } from "../components/figma/ImageWithFallback";
 import { CTABanner } from "../components/CTABanner";
 import { useSEO } from "../hooks/useSEO";
@@ -129,6 +130,58 @@ function CapabilitiesSection() {
     );
 }
 
+function FeaturedMarketingSection() {
+    const ref = useRef(null);
+    const isInView = useInView(ref, { once: true, margin: "-100px" });
+
+    return (
+        <section ref={ref} className="py-20 lg:py-32 bg-gradient-to-r from-[#9B59B6]/10 via-[#F1C40F]/5 to-[#9B59B6]/10 relative overflow-hidden">
+            <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: "url('data:image/svg+xml,%3Csvg width=\"60\" height=\"60\" viewBox=\"0 0 60 60\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cg fill=\"none\" fill-rule=\"evenodd\"%3E%3Cg fill=\"%239C92AC\" fill-opacity=\"1\"%3E%3Cpath d=\"M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')" }} />
+
+            <div className="relative max-w-5xl mx-auto px-6 lg:px-8">
+                <motion.div
+                    ref={ref}
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={isInView ? { opacity: 1, y: 0 } : {}}
+                    transition={{ duration: 0.8 }}
+                    className="bg-white rounded-[2rem] p-10 lg:p-14 shadow-2xl shadow-black/[0.08] border border-black/5"
+                >
+                    <div className="flex items-start justify-between gap-8 flex-col lg:flex-row">
+                        <div className="flex-1">
+                            <span className="inline-block px-4 py-2 rounded-full bg-[#9B59B6]/10 text-[#9B59B6] font-['Inter'] text-sm font-semibold mb-6">
+                                FEATURED SERVICE
+                            </span>
+                            <h2 className="font-['Playfair_Display'] text-[#0A0A0A] text-3xl lg:text-4xl mb-4">
+                                Digital Advertising & Marketing
+                            </h2>
+                            <p className="font-['Inter'] text-black/70 text-lg leading-relaxed mb-8">
+                                Looking for expert advertising and marketing services? We offer comprehensive digital advertising strategies including Google Ads, Facebook advertising, content marketing, and performance-driven campaigns that deliver measurable ROI.
+                            </p>
+                            <Link
+                                to="/marketing"
+                                className="inline-flex items-center gap-3 px-8 py-4 bg-[#9B59B6] text-white rounded-full hover:bg-[#7D3C98] transition-colors duration-300 font-['Inter'] font-semibold"
+                            >
+                                Explore Marketing Services
+                                <ArrowRight size={20} />
+                            </Link>
+                        </div>
+                        <div className="lg:flex-1">
+                            <div className="relative aspect-square rounded-2xl overflow-hidden shadow-lg">
+                                <ImageWithFallback
+                                    src="https://images.unsplash.com/photo-1460925895917-adf4e5f1db74?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=600"
+                                    alt="Digital advertising and marketing dashboard"
+                                    className="w-full h-full object-cover"
+                                />
+                                <div className="absolute inset-0 bg-gradient-to-t from-[#9B59B6]/40 via-transparent to-transparent" />
+                            </div>
+                        </div>
+                    </div>
+                </motion.div>
+            </div>
+        </section>
+    );
+}
+
 export function Services() {
     useSEO(
         "Our Services | Elvera Solutions",
@@ -139,6 +192,7 @@ export function Services() {
         <main className="min-h-screen bg-white selection:bg-[#9B59B6]/30 selection:text-[#0A0A0A]">
             <ServicesHero />
             <CapabilitiesSection />
+            <FeaturedMarketingSection />
             <CTABanner />
         </main>
     );

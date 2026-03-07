@@ -305,6 +305,7 @@ export function Footer() {
                   { label: "Home", href: "/" },
                   { label: "About Us", href: "/about" },
                   { label: "Services", href: "/services" },
+                  { label: "Advertising & Marketing", href: "/marketing" },
                   { label: "Industries", href: "/industries" },
                   { label: "Contact Us", href: "/contact" },
                 ].map((link) => (
@@ -336,23 +337,23 @@ export function Footer() {
               </h4>
               <ul className="space-y-3">
                 {[
-                  "Software Development",
-                  "Digital Marketing",
-                  "Social Media Management",
-                  "Web Design & Development",
-                  "Photography & Videography",
-                  "AI & Automation",
-                  "Branding Services",
-                  "Marketing & Advertisement"
+                  { label: "Software Development", href: "/services" },
+                  { label: "Digital Marketing", href: "/marketing" },
+                  { label: "Social Media Management", href: "/services" },
+                  { label: "Web Design & Development", href: "/services" },
+                  { label: "Photography & Videography", href: "/services" },
+                  { label: "AI & Automation", href: "/services" },
+                  { label: "Branding Services", href: "/services" },
+                  { label: "Advertising & Marketing", href: "/marketing" }
                 ].map((item) => (
-                  <li key={item}>
+                  <li key={item.label}>
                     <Link
-                      to="/services"
+                      to={item.href}
                       onClick={scrollToTop}
                       className="font-['Inter'] text-white/40 hover:text-[#F1C40F] transition-colors duration-300"
                       style={{ fontSize: "0.85rem", fontWeight: 300 }}
                     >
-                      {item}
+                      {item.label}
                     </Link>
                   </li>
                 ))}
