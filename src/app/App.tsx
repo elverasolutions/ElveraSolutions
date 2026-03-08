@@ -1,4 +1,5 @@
 import { Routes, Route } from "react-router";
+import { SpeedInsights } from "@vercel/speed-insights/react";
 import { Navbar } from "./components/Navbar";
 import { Footer } from "./components/Footer";
 import { Home } from "./pages/Home";
@@ -25,6 +26,7 @@ export default function App() {
       <div className="relative z-[7] shadow-[0_-8px_30px_rgba(0,0,0,0.08)]">
         <Footer />
       </div>
+      <SpeedInsights />
     </div>
   );
 }
