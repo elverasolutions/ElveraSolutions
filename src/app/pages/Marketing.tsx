@@ -14,7 +14,7 @@ function MarketingHero() {
         <section ref={ref} className="relative pt-40 pb-24 lg:pt-48 lg:pb-32 bg-[#0A0A0A] overflow-hidden">
             <div className="absolute inset-0">
                 <ImageWithFallback
-                    src="https://images.unsplash.com/photo-1460925895917-adf4e5f1db74?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=2400"
+                    src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=2400"
                     alt="Digital advertising and marketing analytics"
                     className="w-full h-full object-cover opacity-20 mix-blend-screen"
                 />
