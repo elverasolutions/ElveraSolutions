@@ -13,7 +13,7 @@ import { useSEO } from "../hooks/useSEO";
 export function Home() {
     useSEO(
         "Elvera Solutions | Elevating Brands in the Digital Era",
-        "Elvera Solutions is a premier UAE-based digital agency specializing in software engineering, digital marketing, media production, and AI automation."
+        "Elvera Solutions is a premier UAE-based digital agency specializing in digital marketing, web development, media production, and CRM & AI automation."
     );
 
     return (

@@ -7,6 +7,8 @@ import { Services } from "./pages/Services";
 import { Marketing } from "./pages/Marketing";
 import { Industries } from "./pages/Industries";
 import { Contact } from "./pages/Contact";
+import { PrivacyPolicy } from "./pages/PrivacyPolicy";
+import { TermsOfService } from "./pages/TermsOfService";
 
 export default function App() {
   return (
@@ -20,6 +22,8 @@ export default function App() {
         <Route path="/marketing" element={<Marketing />} />
         <Route path="/industries" element={<Industries />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+        <Route path="/terms-of-service" element={<TermsOfService />} />
       </Routes>
 
       <div className="relative z-[7] shadow-[0_-8px_30px_rgba(0,0,0,0.08)]">

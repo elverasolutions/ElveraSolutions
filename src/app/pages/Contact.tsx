@@ -1,11 +1,10 @@
 import { useState, useRef } from "react";
 import { motion, useInView, AnimatePresence } from "motion/react";
-import { MapPin, Mail, Phone, Linkedin, Instagram, ArrowRight, MessageCircle, ChevronDown, CheckCircle } from "lucide-react";
+import { MapPin, Mail, Phone, Linkedin, Instagram, Facebook, ArrowRight, MessageCircle, ChevronDown, CheckCircle } from "lucide-react";
 import { ImageWithFallback } from "../components/figma/ImageWithFallback";
 import { useSEO } from "../hooks/useSEO";
 
 const helpOptions = [
-    "Software Development",
     "Digital Marketing",
     "Social Media Management",
     "Web Design & Development",
@@ -153,6 +152,9 @@ function ContactSection() {
                                 </a>
                                 <a href="https://www.instagram.com/elverasolutionsllc/" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full bg-white border border-black/5 flex items-center justify-center text-black/50 hover:text-[#E1306C] hover:border-[#E1306C]/30 hover:shadow-lg transition-all duration-300">
                                     <Instagram size={20} />
+                                </a>
+                                <a href="https://www.facebook.com/profile.php?id=61595068165554" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="w-12 h-12 rounded-full bg-white border border-black/5 flex items-center justify-center text-black/50 hover:text-[#1877F2] hover:border-[#1877F2]/30 hover:shadow-lg transition-all duration-300">
+                                    <Facebook size={20} />
                                 </a>
                                 <a href="https://www.linkedin.com/company/111757888/admin/dashboard/" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full bg-white border border-black/5 flex items-center justify-center text-black/50 hover:text-[#0A66C2] hover:border-[#0A66C2]/30 hover:shadow-lg transition-all duration-300">
                                     <Linkedin size={20} />

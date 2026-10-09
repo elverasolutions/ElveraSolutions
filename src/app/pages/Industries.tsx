@@ -1,6 +1,6 @@
 import { useRef } from "react";
 import { motion, useInView } from "motion/react";
-import { ShoppingBag, HeartPulse, Building2, Rocket, Wallet } from "lucide-react";
+import { ShoppingBag, HeartPulse, Building2, Wallet } from "lucide-react";
 import { ImageWithFallback } from "../components/figma/ImageWithFallback";
 import { CTABanner } from "../components/CTABanner";
 import { useSEO } from "../hooks/useSEO";
@@ -72,12 +72,6 @@ function IndustryDetails() {
             img: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800",
         },
         {
-            icon: Rocket,
-            title: "Tech Startups",
-            desc: "Fast-tracking growth with scalable MVPs, aggressive user acquisition, and investor-ready pitch materials.",
-            img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800",
-        },
-        {
             icon: Wallet,
             title: "Finance & Fintech",
             desc: "Creating secure, intuitive interfaces that demystify complex financial products and drive user adoption.",
@@ -128,7 +122,7 @@ function IndustryDetails() {
 export function Industries() {
     useSEO(
         "Industries | Elvera Solutions",
-        "We deliver tailored digital solutions for key sectors including E-commerce, Healthcare, Real Estate, Tech Startups, and Fintech."
+        "We deliver tailored digital solutions for key sectors including E-commerce, Healthcare, Real Estate, and Fintech."
     );
 
     return (

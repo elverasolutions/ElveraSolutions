@@ -14,7 +14,6 @@ import { X, Send, ChevronDown, CheckCircle, AlertCircle, Loader2, CalendarDays }
 const WEB3FORMS_ACCESS_KEY = "24424e09-3f93-45f5-b97e-36ec6b6fd046"; // ← Replace with your real key
 
 const helpOptions = [
-  "Software Development",
   "Digital Marketing",
   "Social Media Management",
   "Web Design & Development",

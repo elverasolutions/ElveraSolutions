@@ -1,6 +1,6 @@
 import { useRef } from "react";
 import { motion, useInView } from "motion/react";
-import { Terminal, AppWindow, LineChart, MessageCircle, Camera, Cpu, ArrowRight } from "lucide-react";
+import { AppWindow, LineChart, MessageCircle, Camera, Cpu, ArrowRight } from "lucide-react";
 import { Link } from "react-router";
 import { ImageWithFallback } from "../components/figma/ImageWithFallback";
 import { CTABanner } from "../components/CTABanner";
@@ -56,15 +56,9 @@ function CapabilitiesSection() {
 
     const services = [
         {
-            icon: Terminal,
-            title: "Software Engineering",
-            items: ["Custom Web Applications", "SaaS Development", "Enterprise Software Solutions"],
-            color: "from-[#9B59B6] to-[#7D3C98]",
-        },
-        {
             icon: AppWindow,
-            title: "Web & App Development",
-            items: ["High-Performance Corporate Websites", "E-commerce Platforms", "React Native / iOS & Android Apps"],
+            title: "Web Development",
+            items: ["High-Performance Corporate Websites", "E-commerce Platforms", "Landing Pages & Conversion Funnels"],
             color: "from-[#F1C40F] to-[#D4AC0D]",
         },
         {
@@ -165,10 +159,10 @@ function FeaturedMarketingSection() {
                                 <ArrowRight size={20} />
                             </Link>
                         </div>
-                        <div className="lg:flex-1">
+                        <div className="w-full lg:flex-1">
                             <div className="relative aspect-square rounded-2xl overflow-hidden shadow-lg">
                                 <ImageWithFallback
-                                    src="https://images.unsplash.com/photo-1460925895917-adf4e5f1db74?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=600"
+                                    src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=600"
                                     alt="Digital advertising and marketing dashboard"
                                     className="w-full h-full object-cover"
                                 />

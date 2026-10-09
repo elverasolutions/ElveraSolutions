@@ -1,7 +1,7 @@
 import { useRef } from "react";
 import { Link } from "react-router";
 import { motion, useInView, useScroll, useTransform } from "motion/react";
-import { ArrowRight, ShoppingBag, Landmark, HeartPulse, Building2, Rocket, Wallet } from "lucide-react";
+import { ArrowRight, ShoppingBag, Landmark, HeartPulse, Building2, Wallet } from "lucide-react";
 import { useLiteAnimations } from "./useMediaQuery";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 
@@ -9,7 +9,6 @@ const industries = [
     { icon: ShoppingBag, name: "E-commerce & Retail" },
     { icon: HeartPulse, name: "Healthcare & Wellness" },
     { icon: Building2, name: "Real Estate & Construction" },
-    { icon: Rocket, name: "Tech Startups" },
     { icon: Wallet, name: "Finance & Fintech" },
 ];
 

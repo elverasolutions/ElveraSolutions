@@ -6,15 +6,20 @@ import {
   useScroll,
   useTransform,
 } from "motion/react";
-import { Sparkles, TrendingUp, Globe, ArrowRight } from "lucide-react";
+import { Sparkles, TrendingUp, Bot, Palette, ArrowRight } from "lucide-react";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 import { useLiteAnimations } from "./useMediaQuery";
 
 const pillars = [
   {
-    icon: Globe,
-    title: "Software & Web",
-    description: "Custom digital infrastructure and robust web platforms built for scale.",
+    icon: Bot,
+    title: "CRM & AI Automation",
+    description: "Smart CRM systems and automated workflows that save time and close more deals.",
+  },
+  {
+    icon: Palette,
+    title: "Design & AI",
+    description: "Brand and visual design, accelerated by AI, that makes you stand out.",
   },
   {
     icon: TrendingUp,
@@ -121,7 +126,7 @@ export function AboutSection() {
               className="font-['Inter'] text-[#0A0A0A]/50 mb-10"
               style={{ fontSize: "0.95rem", fontWeight: 300, lineHeight: 1.9 }}
             >
-              From software development and web design to digital marketing, social media management, and professional photography & videography. We don't just deliver services. <span className="text-[#0A0A0A]" style={{ fontWeight: 500 }}>We deliver results.</span>
+              From CRM and AI automation to design, digital marketing, social media management, and professional photography & videography. We don't just deliver services. <span className="text-[#0A0A0A]" style={{ fontWeight: 500 }}>We deliver results.</span>
             </motion.p>
 
             {/* Pillars */}
@@ -216,34 +221,6 @@ export function AboutSection() {
                 className="w-full h-[400px] lg:h-[600px] object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#9B59B6]/20 via-transparent to-transparent" />
-            </motion.div>
-
-            {/* Floating stat card */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{
-                duration: lite ? 0.4 : 0.8,
-                delay: dl(0.9),
-              }}
-              className="absolute -bottom-6 -left-3 lg:-left-6 bg-white rounded-2xl p-5 lg:p-6 shadow-[0_20px_60px_rgba(0,0,0,0.08)] cursor-default"
-            >
-              <div
-                className="font-['Playfair_Display'] text-[#9B59B6]"
-                style={{ fontSize: "2rem", fontWeight: 600, lineHeight: 1 }}
-              >
-                100%
-              </div>
-              <div
-                className="font-['Inter'] text-[#0A0A0A]/50 mt-1"
-                style={{
-                  fontSize: "0.75rem",
-                  fontWeight: 400,
-                  letterSpacing: "0.05em",
-                }}
-              >
-                Integrated Approach
-              </div>
             </motion.div>
 
             {/* Desktop decorative corners */}

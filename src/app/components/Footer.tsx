@@ -6,14 +6,13 @@ import {
   Phone,
   ArrowRight,
   Instagram,
+  Facebook,
   Linkedin,
   Heart,
   MessageCircle,
 } from "lucide-react";
 import { useLiteAnimations } from "./useMediaQuery";
 import { EnquiryModal } from "./EnquiryModal";
-import { PrivacyPolicyModal } from "./PrivacyPolicyModal";
-import { TermsOfServiceModal } from "./TermsOfServiceModal";
 
 export function Footer() {
   const lite = useLiteAnimations();
@@ -22,8 +21,6 @@ export function Footer() {
   const footerRef = useRef(null);
   const footerInView = useInView(footerRef, { once: true, margin: "-30px" });
   const [modalOpen, setModalOpen] = useState(false);
-  const [privacyOpen, setPrivacyOpen] = useState(false);
-  const [termsOpen, setTermsOpen] = useState(false);
   const location = useLocation();
 
   const scrollToTop = () => {
@@ -337,7 +334,6 @@ export function Footer() {
               </h4>
               <ul className="space-y-3">
                 {[
-                  { label: "Software Development", href: "/services" },
                   { label: "Digital Marketing", href: "/marketing" },
                   { label: "Social Media Management", href: "/services" },
                   { label: "Web Design & Development", href: "/services" },
@@ -429,6 +425,18 @@ export function Footer() {
                   <Instagram size={16} className="text-white/50" />
                 </motion.a>
                 <motion.a
+                  href="https://www.facebook.com/profile.php?id=61595068165554"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Facebook"
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={footerInView ? { opacity: 1, y: 0 } : {}}
+                  transition={{ duration: 0.4, delay: dl(0.39) }}
+                  className="w-10 h-10 rounded-full bg-white/[0.06] border border-white/10 flex items-center justify-center hover:border-[#1877F2]/50 hover:bg-[#1877F2]/10 transition-all duration-300"
+                >
+                  <Facebook size={16} className="text-white/50" />
+                </motion.a>
+                <motion.a
                   href="https://www.linkedin.com/company/111757888/admin/dashboard/"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -468,33 +476,29 @@ export function Footer() {
               &copy; 2026 Elvera Solutions LLC. All Rights Reserved.
             </p>
             <div className="flex items-center gap-6">
-              <button
-                onClick={() => setPrivacyOpen(true)}
+              <Link
+                to="/privacy-policy"
+                onClick={scrollToTop}
                 className="font-['Inter'] text-white/25 hover:text-[#F1C40F] transition-colors duration-300 bg-transparent border-none cursor-pointer p-0"
                 style={{ fontSize: "0.75rem", fontWeight: 300 }}
               >
                 Privacy Policy
-              </button>
-              <button
-                onClick={() => setTermsOpen(true)}
+              </Link>
+              <Link
+                to="/terms-of-service"
+                onClick={scrollToTop}
                 className="font-['Inter'] text-white/25 hover:text-[#F1C40F] transition-colors duration-300 bg-transparent border-none cursor-pointer p-0"
                 style={{ fontSize: "0.75rem", fontWeight: 300 }}
               >
                 Terms of Service
-              </button>
+              </Link>
             </div>
           </motion.div>
         </div>
       </footer>
 
-      {/* Enquiry Modal */}
       <EnquiryModal open={modalOpen} onClose={() => setModalOpen(false)} />
 
-      {/* Privacy Policy Modal */}
-      <PrivacyPolicyModal open={privacyOpen} onClose={() => setPrivacyOpen(false)} />
-
-      {/* Terms of Service Modal */}
-      <TermsOfServiceModal open={termsOpen} onClose={() => setTermsOpen(false)} />
     </>
   );
 }

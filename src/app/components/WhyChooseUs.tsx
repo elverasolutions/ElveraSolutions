@@ -88,8 +88,8 @@ const factors = [
 
 const showcaseImages = [
   {
-    src: "https://images.unsplash.com/photo-1758448755778-90ebf4d0f1e7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjcmVhdGl2ZSUyMGFnZW5jeSUyMHN0cmF0ZWd5JTIwYnJhaW5zdG9ybWluZyUyMGx1eHVyeXxlbnwxfHx8fDE3NzE3MDA1NzZ8MA&ixlib=rb-4.1.0&q=100&w=2400&utm_source=figma&utm_medium=referral",
-    alt: "Creative team brainstorming",
+    src: "https://images.unsplash.com/photo-1552664730-d307ca884978?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=2400",
+    alt: "Creative team mapping out a brand strategy",
     caption: "Creative Strategy",
   },
   {

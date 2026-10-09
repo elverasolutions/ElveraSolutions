@@ -7,7 +7,6 @@ import {
   useTransform,
 } from "motion/react";
 import {
-  Code,
   Layout,
   Megaphone,
   Share2,
@@ -20,24 +19,16 @@ import { useLiteAnimations } from "./useMediaQuery";
 
 const services = [
   {
-    id: "software",
-    number: "01",
-    icon: Code,
-    title: "Software Engineering",
-    subtitle: "Custom software, web platforms, and mobile apps built for performance and scale.",
-    image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
-  },
-  {
     id: "web-app",
-    number: "02",
+    number: "01",
     icon: Layout,
-    title: "Web & App Development",
-    subtitle: "Stunning, high-converting websites and applications tailored to your business needs.",
+    title: "Web Development",
+    subtitle: "Stunning, high-converting websites tailored to your business needs.",
     image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
   },
   {
     id: "marketing",
-    number: "03",
+    number: "02",
     icon: Megaphone,
     title: "Digital Marketing & SEO",
     subtitle: "Data-driven campaigns that increase visibility, traffic, and conversions.",
@@ -45,7 +36,7 @@ const services = [
   },
   {
     id: "social",
-    number: "04",
+    number: "03",
     icon: Share2,
     title: "Social Media Management",
     subtitle: "Engaging content and community management across all major social platforms.",
@@ -53,7 +44,7 @@ const services = [
   },
   {
     id: "media",
-    number: "05",
+    number: "04",
     icon: Camera,
     title: "Media Production",
     subtitle: "High-end photography and videography that captures your brand's essence.",
@@ -61,7 +52,7 @@ const services = [
   },
   {
     id: "ai",
-    number: "06",
+    number: "05",
     icon: Cpu,
     title: "Automation & AI Solutions",
     subtitle: "Streamlining operations and integrating smart technology for future-ready businesses.",
